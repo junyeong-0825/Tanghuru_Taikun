@@ -29,16 +29,37 @@ public class PlayerController : MonoBehaviour
         CallMoveEvent(moveInput);
 
 
-        //인풋시스템의 x값이 음수로 변하면 y축으로 뒤집고 양수로 바뀔 때 다시 원상태로 돌아가도록 하기
-        if (moveInput.x > 0)
+        //인풋시스템의 x값이 0일 때 y값에 따라 앞, 뒷모습으로 스프라이트 변경
+        if (moveInput.x == 0)
         {
-            spriteRenderer.flipY = false;
+            if (moveInput.y > 0)
+            {
+                Debug.Log("위");
+                //뒷모습이 보이는 스프라이트로 변경
+            }
+
+            if (moveInput.y < 0)
+            {
+                Debug.Log("아래");
+                //앞모습이 보이는 스프라이트로 변경
+            }
+        }
+        else
+        {
+            //인풋시스템의 x값이 음수로 변하면 y축으로 뒤집고 양수로 바뀔 때 다시 원상태로 돌아가도록 하기
+            if (moveInput.x > 0)
+            {
+                Debug.Log("오른쪽");
+                spriteRenderer.flipY = false;
+            }
+
+            if (moveInput.x < 0)
+            {
+                Debug.Log("왼쪽");
+                spriteRenderer.flipY = true;
+            }
         }
 
-        if (moveInput.x < 0)
-        {
-            spriteRenderer.flipY = true;
-        }
 
     }
 
