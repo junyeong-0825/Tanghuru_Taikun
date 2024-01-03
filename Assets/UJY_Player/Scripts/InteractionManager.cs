@@ -6,23 +6,19 @@ using UnityEngine.UIElements;
 
 public class InteractionManager : MonoBehaviour
 {
-    //public float CheckRate = 0.5f;
-    private float _lastCheckTime;
-    private int _maxCheckDistance = 5;
 
-    //public LayerMask InteractableLayerMask;
+    private float _maxCheckDistance = 1f;
     private Ray ray;
     private RaycastHit2D _raycastHit;
     private Vector2 _moveDir;
 
-    //public TextMeshProUGUI promptText;
+    public GameObject _promptText;
 
 
 
     private void Awake()
     {
         ray = new Ray();
-
     }
 
     private void Update()
@@ -42,11 +38,16 @@ public class InteractionManager : MonoBehaviour
         if (_raycastHit.collider != null)
         {
             Debug.Log(_raycastHit.collider.name);
+            _promptText.transform.position = _raycastHit.collider.gameObject.transform.position;
+            _promptText.gameObject.SetActive(true);
         }
-
+        else
+        {
+            _promptText.gameObject.SetActive(false);
+        }
 
     }
 
-
-
 }
+
+
