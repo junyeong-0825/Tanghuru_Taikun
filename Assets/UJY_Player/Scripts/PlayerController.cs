@@ -36,11 +36,11 @@ public class PlayerController : MonoBehaviour
         //인풋시스템 값을 단위벡터값으로 변경 후 매개변수로 전달하면서 무브이벤트 함수 호출
         Vector2 moveInput = value.Get<Vector2>().normalized;
         CallMoveEvent(moveInput);
-
         
         //인풋시스템의 x값이 0일 때 y값에 따라 앞, 뒷모습으로 스프라이트 변경
         if (moveInput.x == 0)
         {
+
             if (moveInput.y > 0)
             {
                 _mainSprite.SetActive(false);
@@ -76,6 +76,8 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+
 
  
 

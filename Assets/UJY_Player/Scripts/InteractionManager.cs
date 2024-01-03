@@ -11,7 +11,7 @@ public class InteractionManager : MonoBehaviour
     private Ray ray;
     private RaycastHit2D _raycastHit;
     private Vector2 _moveDir;
-
+    private bool IsInteracting = false;
     public GameObject _promptText;
 
 
@@ -21,31 +21,46 @@ public class InteractionManager : MonoBehaviour
         ray = new Ray();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        ray.origin = this.transform.position;
-        if(Input.GetKeyDown(KeyCode.UpArrow))
-            _moveDir = Vector2.up;
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-            _moveDir = Vector2.down;
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            _moveDir = Vector2.left;
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-            _moveDir = Vector2.right;
 
-        _raycastHit = Physics2D.Raycast(ray.origin, _moveDir, _maxCheckDistance, LayerMask.GetMask("Interactable"));
-
-        if (_raycastHit.collider != null)
+        if(IsInteracting == false)
         {
-            Debug.Log(_raycastHit.collider.name);
-            _promptText.transform.position = _raycastHit.collider.gameObject.transform.position;
-            _promptText.gameObject.SetActive(true);
-        }
-        else
-        {
-            _promptText.gameObject.SetActive(false);
-        }
+            //상, 하, 좌, 우 키 입력마다 ray 방향 전환
+            ray.origin = this.transform.position;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                _moveDir = Vector2.up;
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+                _moveDir = Vector2.down;
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                _moveDir = Vector2.left;
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+                _moveDir = Vector2.right;
+           
 
+            //hit값 캐싱
+            _raycastHit = Physics2D.Raycast(ray.origin, _moveDir, _maxCheckDistance, LayerMask.GetMask("Interactable"));
+
+            if (_raycastHit.collider != null)
+            {
+                //hit한 오브젝트의 포지션 가져온 후 해당 오브젝트 위치에 text 옮기고 on
+                Debug.Log(_raycastHit.collider.name);
+                _promptText.transform.position = _raycastHit.collider.gameObject.transform.position;
+                _promptText.gameObject.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    IsInteracting = true;
+                    EffectManager.Instance.InteractingEffect(_raycastHit.collider.gameObject.transform);
+                    _promptText.gameObject.SetActive(false);
+                    //E키 누르면 상호작용 진행, 상호작용 마무리 후 IsInteracting을 false로 바꿔야 함
+                }
+            }
+            else
+            {
+                _promptText.gameObject.SetActive(false);
+            }
+        }
+       
     }
 
 }
