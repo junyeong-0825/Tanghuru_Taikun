@@ -27,10 +27,9 @@ public class EffectManager : MonoBehaviour
 
     public void InteractingEffect(Transform position)
     {
-        _audioSource.PlayOneShot(SoundEffects[1]);
+        _audioSource.PlayOneShot(SoundEffects[2]);
         Instantiate(ParticleEffects[0], position);
     }
-
 
 
 

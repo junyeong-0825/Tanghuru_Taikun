@@ -12,7 +12,8 @@ public class InteractionManager : MonoBehaviour
     private RaycastHit2D _raycastHit;
     private Vector2 _moveDir;
     private bool IsInteracting = false;
-    public GameObject _promptText;
+    public GameObject PromptText;
+    public GameObject Inventory;
 
 
 
@@ -21,8 +22,16 @@ public class InteractionManager : MonoBehaviour
         ray = new Ray();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            if(Inventory.activeSelf == true)
+            Inventory.SetActive(false);
+            else if(Inventory.activeSelf == false)
+                Inventory.SetActive(true);
+        }
+
 
         if(IsInteracting == false)
         {
@@ -45,19 +54,19 @@ public class InteractionManager : MonoBehaviour
             {
                 //hit한 오브젝트의 포지션 가져온 후 해당 오브젝트 위치에 text 옮기고 on
                 Debug.Log(_raycastHit.collider.name);
-                _promptText.transform.position = _raycastHit.collider.gameObject.transform.position;
-                _promptText.gameObject.SetActive(true);
+                PromptText.transform.position = _raycastHit.collider.gameObject.transform.position;
+                PromptText.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     IsInteracting = true;
                     EffectManager.Instance.InteractingEffect(_raycastHit.collider.gameObject.transform);
-                    _promptText.gameObject.SetActive(false);
+                    PromptText.gameObject.SetActive(false);
                     //E키 누르면 상호작용 진행, 상호작용 마무리 후 IsInteracting을 false로 바꿔야 함
                 }
             }
             else
             {
-                _promptText.gameObject.SetActive(false);
+                PromptText.gameObject.SetActive(false);
             }
         }
        
