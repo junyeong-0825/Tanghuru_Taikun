@@ -47,7 +47,7 @@ public class InteractionManager : MonoBehaviour
                 _moveDir = Vector2.right;
            
 
-            //hit값 캐싱
+            //hit값 캐싱, layermask로 비교하여 상호작용 가능 물체 판단 / 종류가 다양할 시 분류는 TAG로 할 예정
             _raycastHit = Physics2D.Raycast(ray.origin, _moveDir, _maxCheckDistance, LayerMask.GetMask("Interactable"));
 
             if (_raycastHit.collider != null)
