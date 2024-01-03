@@ -46,8 +46,6 @@ public class PlayerController : MonoBehaviour
                 _mainSprite.SetActive(false);
                 _mainSpriteDown.SetActive(false);
                 _mainSpriteUp.SetActive(true);
-                Debug.Log("위");
-                //뒷모습이 보이는 스프라이트로 변경
             }
 
             if (moveInput.y < 0)
@@ -55,8 +53,6 @@ public class PlayerController : MonoBehaviour
                 _mainSprite.SetActive(false);
                 _mainSpriteDown.SetActive(true);
                 _mainSpriteUp.SetActive(false);
-                Debug.Log("아래");
-                //앞모습이 보이는 스프라이트로 변경
             }
         }
         else
@@ -67,13 +63,13 @@ public class PlayerController : MonoBehaviour
             _mainSprite.SetActive(true);
             if (moveInput.x > 0)
             {
-                Debug.Log("오른쪽");
+
                 _spriteRenderer.flipX = false;
             }
 
             if (moveInput.x < 0)
             {
-                Debug.Log("왼쪽");
+             
                 _spriteRenderer.flipX = true;
             }
         }
