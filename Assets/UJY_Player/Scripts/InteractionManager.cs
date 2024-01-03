@@ -58,7 +58,7 @@ public class InteractionManager : MonoBehaviour
                 PromptText.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    IsInteracting = true;
+                    //IsInteracting = true;
                     EffectManager.Instance.InteractingEffect(_raycastHit.collider.gameObject.transform);
                     PromptText.gameObject.SetActive(false);
                     //E키 누르면 상호작용 진행, 상호작용 마무리 후 IsInteracting을 false로 바꿔야 함
