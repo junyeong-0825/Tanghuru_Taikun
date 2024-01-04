@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class InteractionManager : MonoBehaviour
+public class PlayerInteractController : MonoBehaviour
 {
 
     private float _maxCheckDistance = 1f;
@@ -37,13 +37,13 @@ public class InteractionManager : MonoBehaviour
         {
             //상, 하, 좌, 우 키 입력마다 ray 방향 전환
             ray.origin = this.transform.position;
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.W))
                 _moveDir = Vector2.up;
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.S))
                 _moveDir = Vector2.down;
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (Input.GetKeyDown(KeyCode.A))
                 _moveDir = Vector2.left;
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.D))
                 _moveDir = Vector2.right;
            
 
@@ -53,15 +53,19 @@ public class InteractionManager : MonoBehaviour
             if (_raycastHit.collider != null)
             {
                 //hit한 오브젝트의 포지션 가져온 후 해당 오브젝트 위치에 text 옮기고 on
-                Debug.Log(_raycastHit.collider.name);
                 PromptText.transform.position = _raycastHit.collider.gameObject.transform.position;
                 PromptText.gameObject.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    //IsInteracting = true;
                     EffectManager.Instance.InteractingEffect(_raycastHit.collider.gameObject.transform);
                     PromptText.gameObject.SetActive(false);
-                    //E키 누르면 상호작용 진행, 상호작용 마무리 후 IsInteracting을 false로 바꿔야 함
+                    if (_raycastHit.collider.gameObject.tag == "CookObject")
+                        Cooking();
+                    else if (_raycastHit.collider.gameObject.tag == "ResourceObject")
+                        GetResources();
+                    else if (_raycastHit.collider.gameObject.tag == "DisplayObject")
+                        Display();
+
                 }
             }
             else
@@ -71,6 +75,23 @@ public class InteractionManager : MonoBehaviour
         }
        
     }
+
+    private void Cooking()
+    {
+        Debug.Log("Cooking");
+    }
+
+    private void Display()
+    {
+        Debug.Log("Display");
+    }
+
+
+    private void GetResources()
+    {
+        Debug.Log("GetResource");
+    }
+
 
 }
 
