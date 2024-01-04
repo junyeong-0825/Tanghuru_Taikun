@@ -5,24 +5,52 @@ using UnityEngine.UI;
 
 public class BuilngData : MonoBehaviour
 {
-    [Header("Builing")]
-    public List<GameObject> buildings;
-    public List<Button> buildingButtons;
+    public static BuilngData instance;
+
+    public BuilidingsObject[] builidings;
+    public SpriteRenderer[] builiding_sprites;
+    public GameObject[] builiding_images;
+
+    private int selectIndex;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
-        for (int i = 0; i < buildingButtons.Count; i++)
+        for (int i = 0; i < builidings.Length; i++)
         {
-            int index = i;
-
-            buildingButtons[index].onClick.AddListener(() => BuildingActive(index));
+            if (builidings[i].purchase == true)
+            {
+                builiding_sprites[i].sprite = builidings[i].sprite;
+                builiding_images[i].SetActive(true);
+            }
         }
     }
-    public void BuildingActive(int index)
+
+    public void Buy()
     {
-        if (index >= 0 && index < buildings.Count)
+        if (selectIndex >= 0 && selectIndex < builidings.Length)
         {
-            buildings[index].SetActive(true);
+            print(selectIndex);
+            builiding_sprites[selectIndex].sprite = builidings[selectIndex].sprite;
+            builiding_images[selectIndex].SetActive(true);
+            builidings[selectIndex].purchase = true;
         }
+    }
+
+    public void selectedIndex(int index)
+    {
+        selectIndex = index;
     }
 }
