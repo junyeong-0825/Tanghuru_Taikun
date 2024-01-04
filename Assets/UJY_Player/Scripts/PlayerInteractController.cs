@@ -14,7 +14,7 @@ public class PlayerInteractController : MonoBehaviour
     private bool IsInteracting = false;
     public GameObject PromptText;
     public GameObject Inventory;
-
+    public GameObject Farm;
 
 
     private void Awake()
@@ -80,20 +80,20 @@ public class PlayerInteractController : MonoBehaviour
     private void Cooking()
     {
         Debug.Log("Cooking");
-        Player.Instance.Cooking(Resources.RESOURCE1, 0);
+        Player.Instance.Cooking(Resources.RESOURCE1);
     }
 
     private void Display()
     {
         Debug.Log("Display");
-        Player.Instance.DisplayItem(Items.ITEM1, 0);
+        Player.Instance.DisplayItem(Items.ITEM1);
     }
 
 
     private void GetResources()
     {
         Debug.Log("GetResource");
-        Player.Instance.GetResource(Resources.RESOURCE1, 0);
+        Farm.SetActive(true);
     }
 
 

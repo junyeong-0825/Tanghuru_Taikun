@@ -79,14 +79,14 @@ public class Player : MonoBehaviour
 
     //플레이어의 재료얻기, 탕후루 만들기, 진열하기 등의 기능을 하는 함수들
     #region
-    public void GetResource(Resources resourceNumber, int resourceCount)
+    public void GetResource(Resources resourceNumber)
     {
+        int resourceCount = 30;
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
                 Resource1 += _resourceNum;
                 _resourceNum = 0;
-                Resource1 += resourceCount;
                 break;
             case Resources.RESOURCE2:
                 Resource2 += resourceCount;
@@ -104,9 +104,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Cooking(Resources resourceNumber, int itemCount)
+    public void Cooking(Resources resourceNumber)
     {
-        itemCount = 30;
+        int itemCount = 30;
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
@@ -136,9 +136,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void DisplayItem(Items itemNumber,int itemCount)
+    public void DisplayItem(Items itemNumber)
     {
-        itemCount = 30;
+        int itemCount = 30;
         switch (itemNumber)
         {
             case Items.ITEM1:
