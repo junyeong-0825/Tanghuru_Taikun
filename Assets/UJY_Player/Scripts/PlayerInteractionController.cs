@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class InteractionManager : MonoBehaviour
+public class PlayerInteractionController : MonoBehaviour
 {
 
     private float _maxCheckDistance = 1f;

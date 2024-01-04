@@ -24,7 +24,14 @@ public class BuilidingBuyAfter : MonoBehaviour
             {
                 count[i] += Time.deltaTime;
                 fruitCount[i].text = count[i].ToString("N0");
+
+
             }
         }
+    }
+
+    public void Harvest()
+    {
+
     }
 }
