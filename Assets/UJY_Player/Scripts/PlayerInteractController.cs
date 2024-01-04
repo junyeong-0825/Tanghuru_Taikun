@@ -60,11 +60,11 @@ public class PlayerInteractController : MonoBehaviour
                     EffectManager.Instance.InteractingEffect(_raycastHit.collider.gameObject.transform);
                     PromptText.gameObject.SetActive(false);
                     if (_raycastHit.collider.gameObject.tag == "CookObject")
-                        Cooking();
+                        Cooking(_raycastHit.collider.gameObject.name);
                     else if (_raycastHit.collider.gameObject.tag == "ResourceObject")
                         GetResources();
                     else if (_raycastHit.collider.gameObject.tag == "DisplayObject")
-                        Display();
+                        Display(_raycastHit.collider.gameObject.name);
 
                 }
             }
@@ -77,16 +77,26 @@ public class PlayerInteractController : MonoBehaviour
     }
 
 
-    private void Cooking()
+    private void Cooking(string name)
     {
         Debug.Log("Cooking");
-        Player.Instance.Cooking(Resources.RESOURCE1);
+        switch(name)
+        {
+            case "StrawberryMaker":
+                Player.Instance.Cooking(Resources.RESOURCE1);
+                break;
+        }
     }
 
-    private void Display()
+    private void Display(string name)
     {
         Debug.Log("Display");
-        Player.Instance.DisplayItem(Items.ITEM1);
+        switch (name)
+        {
+            case "StrawberryTable":
+                Player.Instance.DisplayItem(Items.ITEM1);
+                break;
+        }
     }
 
 

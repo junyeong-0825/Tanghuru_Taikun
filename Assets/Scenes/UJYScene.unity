@@ -8881,7 +8881,7 @@ GameObject:
   - component: {fileID: 2053544074}
   - component: {fileID: 2053544073}
   m_Layer: 6
-  m_Name: Cook (5)
+  m_Name: StrawberryMaker
   m_TagString: CookObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8989,7 +8989,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.58312565, b: 0.58312565, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9604,7 +9604,7 @@ GameObject:
   - component: {fileID: 2119213655}
   - component: {fileID: 2119213654}
   m_Layer: 6
-  m_Name: Display (7)
+  m_Name: StrawberryTable
   m_TagString: DisplayObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9712,7 +9712,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.68301886, b: 0.68301886, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
