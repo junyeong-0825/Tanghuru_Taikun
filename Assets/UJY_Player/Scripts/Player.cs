@@ -36,6 +36,11 @@ public class Player : MonoBehaviour
     //플레이어 정보, 재료리스트, 아이템 리스트
     #region
     public int Level { get; private set; }
+    public int HaveResourceMax { get; private set; }
+    public int MakeItemPerOnce { get; private set; }
+    public int MakeItemMax { get; private set; }
+    public int DisPlayItemPerOnce { get; private set; }
+    public int DisPlayItemMax { get; private set; }
     public int Money { get; private set; }
     public int Sugar { get; private set; }
     public int Resource1 { get; private set; }
@@ -63,9 +68,21 @@ public class Player : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        Level = 1;
+        Money = 1000;
+        Sugar = 100;
+        HaveResourceMax = 300;
+        MakeItemPerOnce = 30;
+        MakeItemMax = 300;
+        DisPlayItemPerOnce = 30;
+        DisPlayItemMax = 300;
+    }
+
     private void Update()
     {
-        time+= Time.deltaTime;
+        time += Time.deltaTime;
         if(time > 1)
         {
             _resourceNum += 100;
@@ -84,6 +101,7 @@ public class Player : MonoBehaviour
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
+                Resource1 += resourceCount;
                 Resource1 += _resourceNum;
                 _resourceNum = 0;
                 Resource1 += resourceCount;
@@ -104,9 +122,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Cooking(Resources resourceNumber, int itemCount)
+    public void Cooking(Resources resourceNumber)
     {
-        itemCount = 30;
+        //int itemCount = MakeItemPerOnce;
+        int itemCount = 30;
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
@@ -136,9 +155,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void DisplayItem(Items itemNumber,int itemCount)
+    public void DisplayItem(Items itemNumber)
     {
-        itemCount = 30;
+        //int itemCount = DisPlayItemPerOnce;
+        int itemCount = 30;
         switch (itemNumber)
         {
             case Items.ITEM1:

@@ -14,6 +14,7 @@ public class PlayerInteractController : MonoBehaviour
     private bool IsInteracting = false;
     public GameObject PromptText;
     public GameObject Inventory;
+    public GameObject Farm;
 
 
 
@@ -57,14 +58,15 @@ public class PlayerInteractController : MonoBehaviour
                 PromptText.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    //Ray 가 hit 한 오브젝트의 tag에 따라서 함수 호출
                     EffectManager.Instance.InteractingEffect(_raycastHit.collider.gameObject.transform);
                     PromptText.gameObject.SetActive(false);
                     if (_raycastHit.collider.gameObject.tag == "CookObject")
-                        Cooking();
+                        Cooking(_raycastHit.collider.gameObject.name);
                     else if (_raycastHit.collider.gameObject.tag == "ResourceObject")
                         GetResources();
                     else if (_raycastHit.collider.gameObject.tag == "DisplayObject")
-                        Display();
+                        Display(_raycastHit.collider.gameObject.name);
 
                 }
             }
@@ -77,23 +79,37 @@ public class PlayerInteractController : MonoBehaviour
     }
 
 
-    private void Cooking()
+    private void Cooking(string name)
     {
         Debug.Log("Cooking");
-        Player.Instance.Cooking(Resources.RESOURCE1, 0);
+        switch(name)
+        {
+            case "StrawberryMaker":
+                Player.Instance.Cooking(Resources.RESOURCE1);
+                break;
+        }
+        //Player.Instance.Cooking(Resources.RESOURCE1, 0);
     }
 
-    private void Display()
+    private void Display(string name)
     {
         Debug.Log("Display");
-        Player.Instance.DisplayItem(Items.ITEM1, 0);
+        switch(name)
+        {
+            case "StrawberryTable":
+                Player.Instance.DisplayItem(Items.ITEM1);
+                break;
+
+        }
+        //Player.Instance.DisplayItem(Items.ITEM1, 0);
     }
 
 
     private void GetResources()
     {
         Debug.Log("GetResource");
-        Player.Instance.GetResource(Resources.RESOURCE1, 0);
+        Farm.SetActive(true);
+        //Player.Instance.GetResource(Resources.RESOURCE1, 0);
     }
 
 
