@@ -79,6 +79,7 @@ public class PlayerInteractController : MonoBehaviour
     private void Cooking()
     {
         Debug.Log("Cooking");
+        Player.Instance.Cooking(Resources.RESOURCE1, 0);
     }
 
     private void Display()
@@ -90,6 +91,7 @@ public class PlayerInteractController : MonoBehaviour
     private void GetResources()
     {
         Debug.Log("GetResource");
+        Player.Instance.GetResource(Resources.RESOURCE1, 0);
     }
 
 
