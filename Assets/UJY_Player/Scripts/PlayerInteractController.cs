@@ -85,6 +85,7 @@ public class PlayerInteractController : MonoBehaviour
     private void Display()
     {
         Debug.Log("Display");
+        Player.Instance.DisplayItem(Items.ITEM1, 0);
     }
 
 

@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI PlayerItemText;
     private int _resourceNum;
     private int _itemNum;
+    private float time;
 
     public int Level { get; private set; }
     public int Money { get; private set; }
@@ -61,7 +62,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        _resourceNum += (int)Time.deltaTime;
+        time+= Time.deltaTime;
+        if(time > 1)
+        {
+            _resourceNum += 10;
+            time = 0;
+        }
         ResourceText.text = _resourceNum.ToString();
         PlayerResourceText.text = Resource1.ToString();
         ItemText.text = _itemNum.ToString();
@@ -70,7 +76,8 @@ public class Player : MonoBehaviour
 
     public void GetResource(Resources resourceNumber, int resourceCount)
     {
-        resourceCount += _resourceNum;
+        Resource1 += _resourceNum;
+        _resourceNum = 0;
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
@@ -94,12 +101,15 @@ public class Player : MonoBehaviour
 
     public void Cooking(Resources resourceNumber, int itemCount)
     {
-        itemCount += 30;
+        itemCount = 30;
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
-                Resource1 -= itemCount;
-                Item1 += itemCount;
+                if (Resource1 > 30)
+                {
+                    Resource1 -= itemCount;
+                    Item1 += itemCount;
+                }
                 break;
             case Resources.RESOURCE2:
                 Resource1 -= itemCount;
@@ -123,10 +133,14 @@ public class Player : MonoBehaviour
 
     public void DisplayItem(Items itemNumber,int itemCount)
     {
+        _itemNum += 30;
         switch (itemNumber)
         {
             case Items.ITEM1:
-                Item1 -= itemCount;
+                if(Item1 > 30)
+                {
+                    Item1 -= itemCount;
+                }
                 break;
             case Items.ITEM2:
                 Item1 -= itemCount;
