@@ -78,8 +78,6 @@ public class Inventory : MonoBehaviour
             if(slotToStackTo != null)
             {
                 slotToStackTo.quantity++;
-                slotToStackTo.name = item.displayName;
-                ;
                 UpdateUI();
                 return;
             }

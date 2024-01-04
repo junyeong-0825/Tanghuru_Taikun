@@ -5,34 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da425db9-6ffa-4dff-9873-0f5bd057e017" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Image.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Image/apple-seeds.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Image/apple-seeds.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/InputSystem.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/InputSystem/PlayerControls.inputactions" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/InputSystem/PlayerControls.inputactions.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Prefabs/Items/Apple_Temp.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Prefabs/Items/Apple_Temp.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/InteractionManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/InteractionManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/Inventory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/Inventory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/ItemObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/ItemObject.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/ItemSlotUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/ItemSlotUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Player.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tanghuru_Taikun/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tanghuru_Taikun/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ansky/Prefabs/UI/ItemSlot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ansky/Prefabs/UI/ItemSlot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ansky/ScriptableObject/ItemDatas/Item_Apple.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ansky/ScriptableObject/ItemDatas/Item_Apple.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ansky/ScriptableObject/Scripts/ItemData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ansky/ScriptableObject/Scripts/ItemData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/InteractableManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/InteractableManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnskyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnskyScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/Inventory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +114,7 @@
       <workItem from="1704260839740" duration="308000" />
       <workItem from="1704261184541" duration="196000" />
       <workItem from="1704261468293" duration="3642000" />
+      <workItem from="1704355048436" duration="191000" />
     </task>
     <servers />
   </component>
