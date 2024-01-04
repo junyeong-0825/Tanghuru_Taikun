@@ -76,6 +76,7 @@ public class PlayerInteractController : MonoBehaviour
        
     }
 
+
     private void Cooking()
     {
         Debug.Log("Cooking");

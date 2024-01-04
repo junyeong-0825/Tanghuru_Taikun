@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     private int _itemNum;
     private float time;
 
+    //플레이어 정보, 재료리스트, 아이템 리스트
+    #region
     public int Level { get; private set; }
     public int Money { get; private set; }
     public int Sugar { get; private set; }
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour
     public int Item3 { get; private set; }
     public int Item4 { get; private set; }
     public int Item5 { get; private set; }
+    #endregion
 
     private void Awake()
     {
@@ -65,7 +68,7 @@ public class Player : MonoBehaviour
         time+= Time.deltaTime;
         if(time > 1)
         {
-            _resourceNum += 10;
+            _resourceNum += 100;
             time = 0;
         }
         ResourceText.text = _resourceNum.ToString();
@@ -74,13 +77,15 @@ public class Player : MonoBehaviour
         PlayerItemText.text = Item1.ToString();
     }
 
+    //플레이어의 재료얻기, 탕후루 만들기, 진열하기 등의 기능을 하는 함수들
+    #region
     public void GetResource(Resources resourceNumber, int resourceCount)
     {
-        Resource1 += _resourceNum;
-        _resourceNum = 0;
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
+                Resource1 += _resourceNum;
+                _resourceNum = 0;
                 Resource1 += resourceCount;
                 break;
             case Resources.RESOURCE2:
@@ -105,7 +110,7 @@ public class Player : MonoBehaviour
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
-                if (Resource1 > 30)
+                if (Resource1 >= 30)
                 {
                     Resource1 -= itemCount;
                     Item1 += itemCount;
@@ -133,13 +138,14 @@ public class Player : MonoBehaviour
 
     public void DisplayItem(Items itemNumber,int itemCount)
     {
-        _itemNum += 30;
+        itemCount = 30;
         switch (itemNumber)
         {
             case Items.ITEM1:
-                if(Item1 > 30)
+                if(Item1 >= 30)
                 {
                     Item1 -= itemCount;
+                    _itemNum += 30;
                 }
                 break;
             case Items.ITEM2:
@@ -157,5 +163,5 @@ public class Player : MonoBehaviour
 
         }
     }
-
+    #endregion
 }
