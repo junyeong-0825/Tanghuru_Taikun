@@ -25,10 +25,6 @@ public enum Items
 public class Player : MonoBehaviour
 {
     public static Player Instance;
-    public TextMeshProUGUI ResourceText;
-    public TextMeshProUGUI PlayerResourceText;
-    public TextMeshProUGUI ItemText;
-    public TextMeshProUGUI PlayerItemText;
     private int _resourceNum;
     private int _itemNum;
     private float time;
@@ -71,10 +67,6 @@ public class Player : MonoBehaviour
             _resourceNum += 100;
             time = 0;
         }
-        ResourceText.text = _resourceNum.ToString();
-        PlayerResourceText.text = Resource1.ToString();
-        ItemText.text = _itemNum.ToString();
-        PlayerItemText.text = Item1.ToString();
     }
 
     //플레이어의 재료얻기, 탕후루 만들기, 진열하기 등의 기능을 하는 함수들
