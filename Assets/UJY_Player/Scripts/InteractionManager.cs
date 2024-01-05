@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class InteractionManager : MonoBehaviour
+public class PlayerInteractionController : MonoBehaviour
 {
 
     private float _maxCheckDistance = 1f;
@@ -35,7 +35,7 @@ public class InteractionManager : MonoBehaviour
 
         if(IsInteracting == false)
         {
-            //»ó, ÇÏ, ÁÂ, ¿ì Å° ÀÔ·Â¸¶´Ù ray ¹æÇâ ÀüÈ¯
+            //ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½ Å° ï¿½Ô·Â¸ï¿½ï¿½ï¿½ ray ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
             ray.origin = this.transform.position;
             if (Input.GetKeyDown(KeyCode.UpArrow))
                 _moveDir = Vector2.up;
@@ -47,12 +47,12 @@ public class InteractionManager : MonoBehaviour
                 _moveDir = Vector2.right;
            
 
-            //hit°ª Ä³½Ì, layermask·Î ºñ±³ÇÏ¿© »óÈ£ÀÛ¿ë °¡´É ¹°Ã¼ ÆÇ´Ü / Á¾·ù°¡ ´Ù¾çÇÒ ½Ã ºÐ·ù´Â TAG·Î ÇÒ ¿¹Á¤
+            //hitï¿½ï¿½ Ä³ï¿½ï¿½, layermaskï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ç´ï¿½ / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ð·ï¿½ï¿½ï¿½ TAGï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             _raycastHit = Physics2D.Raycast(ray.origin, _moveDir, _maxCheckDistance, LayerMask.GetMask("Interactable"));
 
             if (_raycastHit.collider != null)
             {
-                //hitÇÑ ¿ÀºêÁ§Æ®ÀÇ Æ÷Áö¼Ç °¡Á®¿Â ÈÄ ÇØ´ç ¿ÀºêÁ§Æ® À§Ä¡¿¡ text ¿Å±â°í on
+                //hitï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ä¡ï¿½ï¿½ text ï¿½Å±ï¿½ï¿½ on
                 Debug.Log(_raycastHit.collider.name);
                 PromptText.transform.position = _raycastHit.collider.gameObject.transform.position;
                 PromptText.gameObject.SetActive(true);
@@ -61,7 +61,7 @@ public class InteractionManager : MonoBehaviour
                     //IsInteracting = true;
                     EffectManager.Instance.InteractingEffect(_raycastHit.collider.gameObject.transform);
                     PromptText.gameObject.SetActive(false);
-                    //EÅ° ´©¸£¸é »óÈ£ÀÛ¿ë ÁøÇà, »óÈ£ÀÛ¿ë ¸¶¹«¸® ÈÄ IsInteractingÀ» false·Î ¹Ù²ã¾ß ÇÔ
+                    //EÅ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½È£ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ IsInteractingï¿½ï¿½ falseï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ ï¿½ï¿½
                 }
             }
             else
