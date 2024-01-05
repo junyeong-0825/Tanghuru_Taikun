@@ -15,6 +15,7 @@ public class PlayerInteractController : MonoBehaviour
     public GameObject PromptText;
     public GameObject QuestList;
     public GameObject Inventory;
+    public GameObject Tanghuru;
     public GameObject Farm;
     public GameObject Shop;
 
@@ -108,21 +109,20 @@ public class PlayerInteractController : MonoBehaviour
 
     private void Cooking(string name)
     {
-        Debug.Log("Cooking");
         switch(name)
         {
-            case "StrawberryMaker":
+            case "Maker":
                 Player.Instance.Cooking(Resources.RESOURCE1);
+                Tanghuru.SetActive(true);
                 break;
         }
     }
 
     private void Display(string name)
     {
-        Debug.Log("Display");
         switch (name)
         {
-            case "StrawberryTable":
+            case "Table":
                 Player.Instance.DisplayItem(Items.ITEM1);
                 break;
         }
@@ -132,6 +132,7 @@ public class PlayerInteractController : MonoBehaviour
     private void FarmOpen()
     {
         Debug.Log("Farm");
+        Player.Instance.GetResource(Resources.RESOURCE1);
         Farm.SetActive(true);
     }
 

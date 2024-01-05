@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -24,6 +24,7 @@ public enum Items
 
 public class Player : MonoBehaviour
 {
+    public event Action <int> OnLevelUpEvent;
     public static Player Instance;
     private int _resourceNum;
     private int _itemNum;
@@ -35,6 +36,11 @@ public class Player : MonoBehaviour
     public int Money { get; private set; }
     public int Sugar { get; private set; }
     public int Stick { get; private set; }
+
+
+
+
+
     public int Resource1 { get; private set; }
     public int Resource2 { get; private set; }
     public int Resource3 { get; private set; }
@@ -71,7 +77,6 @@ public class Player : MonoBehaviour
         if(time > 1)
         {
             _resourceNum += 100;
-            Money += 10;
             time = 0;
         }
 
@@ -86,16 +91,34 @@ public class Player : MonoBehaviour
         Sugar = 1000;
         Money = 100;
     }
+
+    public void CallLevelUpEvent(int level)
+    {
+        OnLevelUpEvent?.Invoke(level);
+    }
+
+
     private void PlayerLevelUp()
     {
         Level++;
         Stick += Level * 100;
-
+        CallLevelUpEvent(Level);
     }
 
     private void PlayerMoneyChange(int money)
     {
-        Money += money;
+        if(money > 0)
+        {
+            Money += money;
+        }
+        else
+            Money += money;
+    }
+
+    private void UseTanghuruIngredients(int stick, int sugar)
+    {
+        Stick -= stick;
+        Sugar -= sugar;
     }
 
 
@@ -107,6 +130,7 @@ public class Player : MonoBehaviour
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
+                Debug.Log("Resource");
                 Resource1 += _resourceNum;
                 _resourceNum = 0;
                 break;
@@ -134,6 +158,8 @@ public class Player : MonoBehaviour
             case Resources.RESOURCE1:
                 if (Resource1 >= 30)
                 {
+                    Debug.Log("Cook");
+                    Stick -= 30; 
                     Resource1 -= itemCount;
                     Item1 += itemCount;
                 }
@@ -166,6 +192,8 @@ public class Player : MonoBehaviour
             case Items.ITEM1:
                 if(Item1 >= 30)
                 {
+                    Debug.Log("Display");
+                    Money += 30;
                     Item1 -= itemCount;
                     _itemNum += 30;
                 }
