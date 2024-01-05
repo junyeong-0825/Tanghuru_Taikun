@@ -5,13 +5,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class ItemSlot
+public class MachineSlot
 {
     public ItemData item;
     public int quantity;
     public string name;
 }
-public class Inventory : MonoBehaviour
+public class MachineInventory : MonoBehaviour
 {
     public ItemSlotUI[] uiSlots;
     public ItemSlot[] slots;
@@ -27,11 +27,6 @@ public class Inventory : MonoBehaviour
     public UnityEvent onOpenInventory;
     public UnityEvent onCloseInventory;
 
-    public static Inventory instance;
-    void Awake()
-    {
-        instance = this;
-    }
     private void Start()
     {
         inventoryWindow.SetActive(false);

@@ -21,12 +21,31 @@ public class InteractionManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D hit)
     {
-        if (hit.collider.gameObject != curInteractGameobject)
+        GameObject hitGameObject = hit.gameObject;
+
+        int hitLayer = hit.gameObject.layer;
+
+        switch (hitLayer)
         {
-            curInteractGameobject = hit.collider.gameObject;
-            curInteractable = hit.collider.GetComponent<IInteractable>();
-            InteractionWithItem();
+            case 30: //재료와의 상호작용 레이어(ingredients)
+                if (hit.gameObject != curInteractGameobject)
+                {
+                    curInteractGameobject = hit.collider.gameObject;
+                    curInteractable = hit.collider.GetComponent<IInteractable>();
+                    InteractionWithItem();
+                }
+                break;
+            case 31: //설치물과의 상호작용 레이어(Machine)
+                if (hit.gameObject != curInteractGameobject)
+                {
+                    curInteractGameobject = hit.collider.gameObject;
+                    curInteractable = hit.collider.GetComponent<IInteractable>();
+                    InteractionWithItem();
+                }
+                break;
         }
+        
+
     }
 
     private void OnCollisionExit2D(Collision2D hit)
