@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class MiniGameController : MonoBehaviour
 {
+    public GameObject MiniGameButton;
     public GameObject FruitAndStickGame;
     public GameObject TanghuruGame;
     public GameObject NextGameButton;
@@ -12,12 +13,18 @@ public class MiniGameController : MonoBehaviour
     public GameObject BeforeTanghuru;
     public GameObject AfterTanghuru;
     public GameObject ClearButton;
+    public GameObject ClearImage;
     private int _clearNum;
     private bool InGame;
 
     private void Update()
     {
-        
+        if(InGame == true)
+        {
+            slider.value += Time.deltaTime;
+            if (slider.value > 1)
+                slider.value -= 1;
+        }
     }
 
     public void StartGameBtn()
@@ -36,8 +43,6 @@ public class MiniGameController : MonoBehaviour
             FruitAndStickGame.SetActive(false);
             TanghuruGame.SetActive(true);
         }
-        else
-            _clearNum = 0;
            
     }
 
@@ -53,13 +58,6 @@ public class MiniGameController : MonoBehaviour
         AfterTanghuru.SetActive(true);
         InGame = true;
 
-        while(InGame)
-        {
-            slider.value += Time.deltaTime;
-            if(slider.value > 1 )
-            slider.value -=1;
-                          
-        }
     }
 
     public void PullBtn()
@@ -77,6 +75,9 @@ public class MiniGameController : MonoBehaviour
     public void GameClearBtn()
     {
         TanghuruGame.SetActive(false);
+        MiniGameButton.SetActive(false);
+        ClearImage.SetActive(true);
     }
+
 
 }
