@@ -7,9 +7,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameObject InGameObject;
-    public GameObject UIObject;
-    public GameObject GlobalObject;
 
     // Start is called before the first frame update
     private void Awake()
@@ -23,9 +20,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //Instantiate(GlobalObject);
-        //Instantiate(InGameObject);
-        //Instantiate(UIObject);
     }
 
 }
