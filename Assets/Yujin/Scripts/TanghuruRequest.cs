@@ -1,27 +1,33 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TanghuluRequest : MonoBehaviour
 {
-    // 탕후루 요청 및 가격 계산 로직을 담당
-    // 손님이 탕후루를 선택하면, 선택한 양에 따라 가격을 계산하고 이 정보를 로그로 출력
+    [System.Serializable]
+    public class TanghuluType
+    {
+        public string name;  // 탕후루의 이름
+        public int price;    // 탕후루의 가격
+    }
 
-    public int minTanghulu = 1;
-    public int maxTanghulu = 5;
-    public int pricePerTanghulu = 100;
-    private int requestedTanghulu = 0;  // 요청된 탕후루 수량
-
+    public List<TanghuluType> tanghuluTypes;  // 탕후루 유형 목록
+    private TanghuluType selectedTanghulu;    // 선택된 탕후루
 
     public void RequestTanghulu()
     {
-        requestedTanghulu = Random.Range(minTanghulu, maxTanghulu + 1);
-        // 여기에서는 가격 계산을 하지 않고, 오로지 탕후루 수량만 결정
+        int randomIndex = Random.Range(0, tanghuluTypes.Count); // 무작위 인덱스 선택
+        selectedTanghulu = tanghuluTypes[randomIndex]; // 탕후루 선택
+        Debug.Log(selectedTanghulu.name + " 탕후루를 선택했습니다. 가격: " + selectedTanghulu.price);
     }
 
-    public void CalculatePrice(int quantity = 0)
+    public void CalculatePrice()
     {
-        int totalPrice = requestedTanghulu * pricePerTanghulu;
-        Debug.Log("요청된 탕후루: " + requestedTanghulu + ", 총 가격: " + totalPrice);
-        // 요청 처리 후 requestedTanghulu 초기화
-        requestedTanghulu = 0;
+        if (selectedTanghulu != null)
+        {
+            Debug.Log("계산하시오!!!!");
+            Debug.Log("계산된 가격: " + selectedTanghulu.price); // 가격 계산
+            // 필요한 추가 로직.. 게임 매니저에서 가격 +-하면 될듯?
+            selectedTanghulu = null;  // 선택 초기화
+        }
     }
 }
