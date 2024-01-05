@@ -7,6 +7,7 @@ TagManager:
   - CookObject
   - ResourceObject
   - DisplayObject
+  - ShopObject
   layers:
   - Default
   - TransparentFX

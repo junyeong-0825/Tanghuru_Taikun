@@ -13,9 +13,10 @@ public class PlayerInteractController : MonoBehaviour
     private Vector2 _moveDir;
     private bool IsInteracting = false;
     public GameObject PromptText;
+    public GameObject QuestList;
     public GameObject Inventory;
     public GameObject Farm;
-
+    public GameObject Shop;
 
     private void Awake()
     {
@@ -32,8 +33,34 @@ public class PlayerInteractController : MonoBehaviour
                 Inventory.SetActive(true);
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (QuestList.activeSelf == true)
+                QuestList.SetActive(false);
+            else if (QuestList.activeSelf == false)
+                QuestList.SetActive(true);
+        }
 
-        if(IsInteracting == false)
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (Farm.activeSelf == true)
+                Farm.SetActive(false);
+            else if (Farm.activeSelf == false)
+                Farm.SetActive(true);
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (Shop.activeSelf == true)
+                Shop.SetActive(false);
+            else if (Shop.activeSelf == false)
+                Shop.SetActive(true);
+        }
+
+
+        if (IsInteracting == false)
         {
             //상, 하, 좌, 우 키 입력마다 ray 방향 전환
             ray.origin = this.transform.position;
@@ -62,9 +89,11 @@ public class PlayerInteractController : MonoBehaviour
                     if (_raycastHit.collider.gameObject.tag == "CookObject")
                         Cooking(_raycastHit.collider.gameObject.name);
                     else if (_raycastHit.collider.gameObject.tag == "ResourceObject")
-                        GetResources();
+                        FarmOpen();
                     else if (_raycastHit.collider.gameObject.tag == "DisplayObject")
                         Display(_raycastHit.collider.gameObject.name);
+                    else if (_raycastHit.collider.gameObject.tag == "ShopObject")
+                        ShopOpen();
 
                 }
             }
@@ -100,10 +129,16 @@ public class PlayerInteractController : MonoBehaviour
     }
 
 
-    private void GetResources()
+    private void FarmOpen()
     {
-        Debug.Log("GetResource");
+        Debug.Log("Farm");
         Farm.SetActive(true);
+    }
+
+    private void ShopOpen()
+    {
+        Debug.Log("Shop");
+        Shop.SetActive(true);
     }
 
 

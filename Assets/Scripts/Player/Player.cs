@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public int Level { get; private set; }
     public int Money { get; private set; }
     public int Sugar { get; private set; }
+    public int Stick { get; private set; }
     public int Resource1 { get; private set; }
     public int Resource2 { get; private set; }
     public int Resource3 { get; private set; }
@@ -59,15 +60,44 @@ public class Player : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        PlayerStartSetting();
+    }
+
     private void Update()
     {
         time+= Time.deltaTime;
         if(time > 1)
         {
             _resourceNum += 100;
+            Money += 10;
             time = 0;
         }
+
+        if (Stick <= 0)
+            PlayerLevelUp();
     }
+
+    private void PlayerStartSetting()
+    {
+        Level = 1;
+        Stick = 100;
+        Sugar = 1000;
+        Money = 100;
+    }
+    private void PlayerLevelUp()
+    {
+        Level++;
+        Stick += Level * 100;
+
+    }
+
+    private void PlayerMoneyChange(int money)
+    {
+        Money += money;
+    }
+
 
     //플레이어의 재료얻기, 탕후루 만들기, 진열하기 등의 기능을 하는 함수들
     #region
