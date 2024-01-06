@@ -13,7 +13,7 @@ public class MiniGameController : MonoBehaviour
     public GameObject BeforeTanghuru;
     public GameObject AfterTanghuru;
     public GameObject ClearButton;
-    public GameObject ClearImage;
+    public GameObject CookingBtn;
     private int _clearNum;
     private bool InGame;
 
@@ -21,9 +21,9 @@ public class MiniGameController : MonoBehaviour
     {
         if(InGame == true)
         {
-            slider.value += Time.deltaTime;
-            if (slider.value > 1)
-                slider.value -= 1;
+            slider.value++;
+            if (slider.value >= 100)
+                slider.value -= 100;
         }
     }
 
@@ -31,15 +31,13 @@ public class MiniGameController : MonoBehaviour
     {
         _clearNum = 0;
         FruitAndStickGame.SetActive(true);
-        NextGameButton.SetActive(true);
-
     }
     
     public void NextGameBtn()
     {
         if (_clearNum == 12)
         {
-            NextGameButton.SetActive(false);
+            NextGameButton.SetActive(true);
             FruitAndStickGame.SetActive(false);
             TanghuruGame.SetActive(true);
         }
@@ -65,7 +63,7 @@ public class MiniGameController : MonoBehaviour
         InGame = false;
         BeforeTanghuru.SetActive(true);
         AfterTanghuru.SetActive(false);
-        if(slider.value < 0.55 &&  slider.value > 0.45)
+        if(slider.value < 55 &&  slider.value > 45)
         {
             ClearButton.SetActive(true);
         }
@@ -76,7 +74,7 @@ public class MiniGameController : MonoBehaviour
     {
         TanghuruGame.SetActive(false);
         MiniGameButton.SetActive(false);
-        ClearImage.SetActive(true);
+        CookingBtn.SetActive(true);
     }
 
 

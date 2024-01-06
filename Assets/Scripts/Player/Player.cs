@@ -4,24 +4,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum Resources
-{
-    RESOURCE1 = 1,
-    RESOURCE2,
-    RESOURCE3,
-    RESOURCE4,
-    RESOURCE5
-}
-
-public enum Items
-{
-    ITEM1 = 1,
-    ITEM2,
-    ITEM3,
-    ITEM4,
-    ITEM5
-}
-
 public class Player : MonoBehaviour
 {
     public event Action <int> OnLevelUpEvent;
@@ -97,7 +79,6 @@ public class Player : MonoBehaviour
         OnLevelUpEvent?.Invoke(level);
     }
 
-
     private void PlayerLevelUp()
     {
         Level++;
@@ -105,15 +86,11 @@ public class Player : MonoBehaviour
         CallLevelUpEvent(Level);
     }
 
-    private void PlayerMoneyChange(int money)
+    public void PlayerMoneyChange(int money)
     {
-        if(money > 0)
-        {
-            Money += money;
-        }
-        else
-            Money += money;
+         Money += money;
     }
+
 
     private void UseTanghuruIngredients(int stick, int sugar)
     {
