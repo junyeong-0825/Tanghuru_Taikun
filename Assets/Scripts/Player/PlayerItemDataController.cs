@@ -73,6 +73,8 @@ public class PlayerItemDataController : MonoBehaviour
                 break;
 
         }
+
+        Debug.Log(Resource1);
     }
 
 
@@ -82,50 +84,60 @@ public class PlayerItemDataController : MonoBehaviour
         {
             case Items.ITEM1:
                 Item1 += Resource1; 
+                Player.Instance.PlayerDataChange(2, Resource1);
                 Resource1 = 0;
                 break;
             case Items.ITEM2:
                 Item2 += Resource2;
+                Player.Instance.PlayerDataChange(2, Resource2);
                 Resource2 = 0;
                 break;
             case Items.ITEM3:
                 Item3 += Resource3;
+                Player.Instance.PlayerDataChange(2, Resource3);
                 Resource3 = 0;
                 break;
             case Items.ITEM4:
                 Item4 += Resource4;
+                Player.Instance.PlayerDataChange(2, Resource4);
                 Resource4 = 0;
                 break;
             case Items.ITEM5:
                 Item5 += Resource5;
+                Player.Instance.PlayerDataChange(2, Resource5);
                 Resource5 = 0;
                 break;
 
         }
+        Debug.Log(Item1);
     }
 
     public void DisplayItem(Displays displayNumber)
     {
-        int itemCount = 30;
         switch (displayNumber)
         {
             case Displays.DISPLAY1:
-                Item1 += Resource1;
-                Resource1 = 0;
+                Display1 += Item1;
+                Item1 = 0;
                 break;
             case Displays.DISPLAY2:
-                Item1 -= itemCount;
+                Display2 += Item2;
+                Item1 = 0;
                 break;
             case Displays.DISPLAY3:
-                Item1 -= itemCount;
+                Display3 += Item3;
+                Item1 = 0;
                 break;
             case Displays.DISPLAY4:
-                Item1 -= itemCount;
+                Display4 += Item4;
+                Item1 = 0;
                 break;
             case Displays.DISPLAY5:
-                Item1 -= itemCount;
+                Display5 += Item5;
+                Item1 = 0;
                 break;
 
         }
+        Debug.Log(Display1);
     }
 }

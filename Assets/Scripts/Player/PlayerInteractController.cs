@@ -7,21 +7,27 @@ using UnityEngine.UIElements;
 public class PlayerInteractController : MonoBehaviour
 {
 
-    private float _maxCheckDistance = 1f;
     private Ray ray;
     private RaycastHit2D _raycastHit;
     private Vector2 _moveDir;
+    private float _maxCheckDistance = 1f;
     private bool IsInteracting = false;
+    private PlayerItemDataController _playerItemDataController;
+    private GameObject player;
+
     public GameObject PromptText;
     public GameObject QuestList;
     public GameObject Inventory;
-    public GameObject Tanghuru;
+    public GameObject ChoiceFruit;
     public GameObject Farm;
     public GameObject Shop;
+
 
     private void Awake()
     {
         ray = new Ray();
+        player = GameObject.FindGameObjectWithTag("Player");
+        _playerItemDataController = player.GetComponent<PlayerItemDataController>();
     }
 
     private void Update()
@@ -112,8 +118,7 @@ public class PlayerInteractController : MonoBehaviour
         switch(name)
         {
             case "Maker":
-                Player.Instance.Cooking(Resources.RESOURCE1);
-                Tanghuru.SetActive(true);
+                ChoiceFruit.SetActive(true);
                 break;
         }
     }
@@ -122,8 +127,20 @@ public class PlayerInteractController : MonoBehaviour
     {
         switch (name)
         {
-            case "Table":
-                Player.Instance.DisplayItem(Items.ITEM1);
+            case "StrawberryTable":
+                _playerItemDataController.DisplayItem(Displays.DISPLAY1);
+                break;
+            case "Table2":
+                _playerItemDataController.DisplayItem(Displays.DISPLAY2);
+                break;
+            case "Table3":
+                _playerItemDataController.DisplayItem(Displays.DISPLAY3);
+                break;
+            case "Table4":
+                _playerItemDataController.DisplayItem(Displays.DISPLAY4);
+                break;
+            case "Table5":
+                _playerItemDataController.DisplayItem(Displays.DISPLAY5);
                 break;
         }
     }
@@ -131,14 +148,11 @@ public class PlayerInteractController : MonoBehaviour
 
     private void FarmOpen()
     {
-        Debug.Log("Farm");
-        Player.Instance.GetResource(Resources.RESOURCE1);
         Farm.SetActive(true);
     }
 
     private void ShopOpen()
     {
-        Debug.Log("Shop");
         Shop.SetActive(true);
     }
 

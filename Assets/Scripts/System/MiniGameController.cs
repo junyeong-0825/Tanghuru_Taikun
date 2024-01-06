@@ -31,13 +31,13 @@ public class MiniGameController : MonoBehaviour
     {
         _clearNum = 0;
         FruitAndStickGame.SetActive(true);
+        NextGameButton.SetActive(true);
     }
     
     public void NextGameBtn()
     {
         if (_clearNum == 12)
         {
-            NextGameButton.SetActive(true);
             FruitAndStickGame.SetActive(false);
             TanghuruGame.SetActive(true);
         }
