@@ -17,6 +17,18 @@ public class Inventory : MonoBehaviour
     public ItemSlot[] slots;
 
     public GameObject inventoryWindow;
+    
+    [Header("Strawberry")]
+    public ItemObject strawberry;
+    public ItemObject strawberryTang;
+    
+    [Header("Orange")]
+    public ItemObject orange;
+    public ItemObject orangeTang;
+    
+    [Header("Grape")]
+    public ItemObject grape;
+    public ItemObject grapeTang;
 
     [Header("Selected Item")]
     private ItemSlot selectedItem;
@@ -26,6 +38,9 @@ public class Inventory : MonoBehaviour
     [Header("Events")]
     public UnityEvent onOpenInventory;
     public UnityEvent onCloseInventory;
+
+    [Header("Money")]
+    public int gold = 10000;
 
     public static Inventory instance;
     void Awake()
@@ -43,6 +58,12 @@ public class Inventory : MonoBehaviour
             uiSlots[i].index = i;
             uiSlots[i].Clear();
         }
+        
+        AddItem(strawberryTang.item);
+        AddItem(strawberryTang.item);
+        AddItem(strawberryTang.item);
+        AddItem(strawberryTang.item);
+        AddItem(strawberryTang.item);
     }
 
     public void OnInventoryButton()
@@ -92,6 +113,41 @@ public class Inventory : MonoBehaviour
             emptySlot.name = item.displayName;
             UpdateUI();
             return;
+        }
+    }
+    
+    public void ChangeItem(ItemData item, ItemData changeItem)
+    {
+        if(item.canStack)
+        {
+            ItemSlot slotToStackTo = GetItemStack(item);
+            if(slotToStackTo != null)
+            {
+                slotToStackTo.item = changeItem;
+                UpdateUI();
+                return;
+            }
+        }
+        
+        return;
+    }
+
+    public void SendToDisplay(ItemData item, MachineInventory displayItem)
+    {
+        if(item.canStack)
+        {
+            ItemSlot slotToStackTo = GetItemStack(item);
+
+            if(slotToStackTo != null)
+            {
+                for (int i = 0; i < slotToStackTo.quantity; i++)
+                {
+                    displayItem.AddItem(item);
+                }
+                slotToStackTo.item = null;
+                UpdateUI();
+                return;
+            }
         }
     }
 

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b69c1332a63f843468d65504a2a012d4, type: 3}
-  m_Name: Item_Apple
+  m_Name: Item_Orange
   m_EditorClassIdentifier: 
-  displayName: "\uC0AC\uACFC"
-  description: "\uC0AC\uACFC \uC88B\uC544~~"
+  displayName: "\uC624\uB79C\uC9C0"
+  description: 
+  price: 500
   type: 0
-  icon: {fileID: 21300000, guid: 60be6e15e0359431291c9381d07497d4, type: 3}
+  icon: {fileID: 21300000, guid: bd0b00823352a5848806243452e7434b, type: 3}
   canStack: 1
-  maxStackAmount: 12
+  maxStackAmount: 100

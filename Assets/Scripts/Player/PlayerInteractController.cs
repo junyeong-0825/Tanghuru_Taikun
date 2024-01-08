@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -69,7 +70,7 @@ public class PlayerInteractController : MonoBehaviour
 
         if (IsInteracting == false)
         {
-            //»ó, ÇÏ, ÁÂ, ¿ì Å° ÀÔ·Â¸¶´Ù ray ¹æÇâ ÀüÈ¯
+            //ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½ Å° ï¿½Ô·Â¸ï¿½ï¿½ï¿½ ray ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
             ray.origin = this.transform.position;
             if (Input.GetKeyDown(KeyCode.W))
                 _moveDir = Vector2.up;
@@ -81,12 +82,12 @@ public class PlayerInteractController : MonoBehaviour
                 _moveDir = Vector2.right;
            
 
-            //hit°ª Ä³½Ì, layermask·Î ºñ±³ÇÏ¿© »óÈ£ÀÛ¿ë °¡´É ¹°Ã¼ ÆÇ´Ü / Á¾·ù°¡ ´Ù¾çÇÒ ½Ã ºÐ·ù´Â TAG·Î ÇÒ ¿¹Á¤
+            //hitï¿½ï¿½ Ä³ï¿½ï¿½, layermaskï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ç´ï¿½ / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ð·ï¿½ï¿½ï¿½ TAGï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             _raycastHit = Physics2D.Raycast(ray.origin, _moveDir, _maxCheckDistance, LayerMask.GetMask("Interactable"));
 
             if (_raycastHit.collider != null)
             {
-                //hitÇÑ ¿ÀºêÁ§Æ®ÀÇ Æ÷Áö¼Ç °¡Á®¿Â ÈÄ ÇØ´ç ¿ÀºêÁ§Æ® À§Ä¡¿¡ text ¿Å±â°í on
+                //hitï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ä¡ï¿½ï¿½ text ï¿½Å±ï¿½ï¿½ on
                 PromptText.transform.position = _raycastHit.collider.gameObject.transform.position;
                 PromptText.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Space))
@@ -98,7 +99,10 @@ public class PlayerInteractController : MonoBehaviour
                     else if (_raycastHit.collider.gameObject.tag == "ResourceObject")
                         FarmOpen();
                     else if (_raycastHit.collider.gameObject.tag == "DisplayObject")
+                    {
                         Display(_raycastHit.collider.gameObject.name);
+                        DisplayItemSet(_raycastHit.collider.gameObject.name, _raycastHit.collider.GameObject());
+                    }
                     else if (_raycastHit.collider.gameObject.tag == "ShopObject")
                         ShopOpen();
 
@@ -123,6 +127,28 @@ public class PlayerInteractController : MonoBehaviour
         }
     }
 
+    private void DisplayItemSet(string name,GameObject inventory)
+    {
+        switch (name)
+        {
+            case "StrawberryTable":
+                _playerItemDataController.DisplayItemSet(Displays.DISPLAY1, inventory);
+                break;
+            case "Table2":
+                _playerItemDataController.DisplayItemSet(Displays.DISPLAY2, inventory);
+                break;
+            case "Table3":
+                _playerItemDataController.DisplayItemSet(Displays.DISPLAY3, inventory);
+                break;
+            case "Table4":
+                _playerItemDataController.DisplayItemSet(Displays.DISPLAY4, inventory);
+                break;
+            case "Table5":
+                _playerItemDataController.DisplayItemSet(Displays.DISPLAY5, inventory);
+                break;
+        }
+    }
+    
     private void Display(string name)
     {
         switch (name)

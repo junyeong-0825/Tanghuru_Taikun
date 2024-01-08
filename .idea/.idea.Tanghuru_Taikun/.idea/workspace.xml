@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da425db9-6ffa-4dff-9873-0f5bd057e017" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/ScriptableObject/ItemDatas/DisplayStand_Machine.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/ScriptableObject/ItemDatas/DisplayStand_Machine.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/ScriptableObject/Scripts/MachineData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/ScriptableObject/Scripts/MachineData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Machine.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Machine/MachineInventory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Machine/MachineInventory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Machine/MachineObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Machine/MachineObject.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ItemPrefabs/UI/MachineSlot.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ItemPrefabs/UI/MachineSlot.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Machine/MachineItemSlotUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Machine/MachineItemSlotUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tanghuru_Taikun/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tanghuru_Taikun/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/InteractionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ansky/Scripts/Item/InteractionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnskyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnskyScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UJY_Player/Scripts/InteractionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UJY_Player/Scripts/InteractionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/sprite.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/sprite.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/UJYScene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/UJYScene2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/Inventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Machine/MachineInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Machine/MachineInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteractController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteractController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerItemDataController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerItemDataController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +26,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Ansky/Scripts/Item/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Ansky/Scripts/Item/ItemObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Ansky/Scripts/Item/ItemSlotUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Machine/MachineItemSlotUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMPro_UGUI_Private.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -131,6 +126,9 @@
       <workItem from="1704355817869" duration="1836000" />
       <workItem from="1704361341887" duration="23000" />
       <workItem from="1704361427821" duration="1297000" />
+      <workItem from="1704679319951" duration="5639000" />
+      <workItem from="1704693384540" duration="7657000" />
+      <workItem from="1704703241498" duration="484000" />
     </task>
     <servers />
   </component>

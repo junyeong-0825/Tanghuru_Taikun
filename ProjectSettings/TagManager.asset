@@ -8,6 +8,8 @@ TagManager:
   - ResourceObject
   - DisplayObject
   - ShopObject
+  - Waypoint
+  - ExitPoint
   layers:
   - Default
   - TransparentFX

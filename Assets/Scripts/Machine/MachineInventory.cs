@@ -13,13 +13,13 @@ public class MachineSlot
 }
 public class MachineInventory : MonoBehaviour
 {
-    public ItemSlotUI[] uiSlots;
-    public ItemSlot[] slots;
+    public MachineItemSlotUI[] uiSlots;
+    public MachineSlot[] machineSlots;
 
     public GameObject inventoryWindow;
 
     [Header("Selected Item")]
-    private ItemSlot selectedItem;
+    private MachineSlot selectedItem;
     private int selectedItemIndex;
     private int curEquipIndex;
 
@@ -30,11 +30,11 @@ public class MachineInventory : MonoBehaviour
     private void Start()
     {
         inventoryWindow.SetActive(false);
-        slots = new ItemSlot[uiSlots.Length];
+        machineSlots = new MachineSlot[uiSlots.Length];
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < machineSlots.Length; i++)
         {
-            slots[i] = new ItemSlot();
+            machineSlots[i] = new MachineSlot();
             uiSlots[i].index = i;
             uiSlots[i].Clear();
         }
@@ -69,7 +69,7 @@ public class MachineInventory : MonoBehaviour
     {
         if(item.canStack)
         {
-            ItemSlot slotToStackTo = GetItemStack(item);
+            MachineSlot slotToStackTo = GetItemStack(item);
             if(slotToStackTo != null)
             {
                 slotToStackTo.quantity++;
@@ -78,7 +78,7 @@ public class MachineInventory : MonoBehaviour
             }
         }
 
-        ItemSlot emptySlot = GetEmptySlot();
+        MachineSlot emptySlot = GetEmptySlot();
 
         if(emptySlot != null)
         {
@@ -92,32 +92,32 @@ public class MachineInventory : MonoBehaviour
 
     void UpdateUI()
     {
-        for(int i = 0; i< slots.Length; i++)
+        for(int i = 0; i< machineSlots.Length; i++)
         {
-            if (slots[i].item != null)
-                uiSlots[i].Set(slots[i]);
+            if (machineSlots[i].item != null)
+                uiSlots[i].Set(machineSlots[i]);
             else
                 uiSlots[i].Clear();
         }
     }
 
-    ItemSlot GetItemStack(ItemData item)
+    MachineSlot GetItemStack(ItemData item)
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < machineSlots.Length; i++)
         {
-            if (slots[i].item == item && slots[i].quantity < item.maxStackAmount)
-                return slots[i];
+            if (machineSlots[i].item == item && machineSlots[i].quantity < item.maxStackAmount)
+                return machineSlots[i];
         }
 
         return null;
     }
 
-    ItemSlot GetEmptySlot()
+    MachineSlot GetEmptySlot()
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < machineSlots.Length; i++)
         {
-            if (slots[i].item == null)
-                return slots[i];
+            if (machineSlots[i].item == null)
+                return machineSlots[i];
         }
 
         return null;
