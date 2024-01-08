@@ -8,6 +8,6 @@ public class ItemObject : MonoBehaviour, IInteractable
     public void OnInteract()
     {
         Inventory.instance.AddItem(item);
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 }

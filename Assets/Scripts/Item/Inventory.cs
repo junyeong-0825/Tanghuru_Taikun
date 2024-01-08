@@ -17,6 +17,18 @@ public class Inventory : MonoBehaviour
     public ItemSlot[] slots;
 
     public GameObject inventoryWindow;
+    
+    [Header("Strawberry")]
+    public ItemObject strawberry;
+    public ItemObject strawberryTang;
+    
+    [Header("Orange")]
+    public ItemObject orange;
+    public ItemObject orangeTang;
+    
+    [Header("Grape")]
+    public ItemObject grape;
+    public ItemObject grapeTang;
 
     [Header("Selected Item")]
     private ItemSlot selectedItem;
@@ -93,6 +105,22 @@ public class Inventory : MonoBehaviour
             UpdateUI();
             return;
         }
+    }
+    
+    public void ChangeItem(ItemData item, ItemData changeItem)
+    {
+        if(item.canStack)
+        {
+            ItemSlot slotToStackTo = GetItemStack(item);
+            if(slotToStackTo != null)
+            {
+                slotToStackTo.item = changeItem;
+                UpdateUI();
+                return;
+            }
+        }
+        
+        return;
     }
 
     void UpdateUI()

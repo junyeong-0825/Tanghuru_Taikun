@@ -69,7 +69,7 @@ public class PlayerInteractController : MonoBehaviour
 
         if (IsInteracting == false)
         {
-            //»ó, ÇÏ, ÁÂ, ¿ì Å° ÀÔ·Â¸¶´Ù ray ¹æÇâ ÀüÈ¯
+            //ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½, ï¿½ï¿½ Å° ï¿½Ô·Â¸ï¿½ï¿½ï¿½ ray ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
             ray.origin = this.transform.position;
             if (Input.GetKeyDown(KeyCode.W))
                 _moveDir = Vector2.up;
@@ -81,12 +81,12 @@ public class PlayerInteractController : MonoBehaviour
                 _moveDir = Vector2.right;
            
 
-            //hit°ª Ä³½Ì, layermask·Î ºñ±³ÇÏ¿© »óÈ£ÀÛ¿ë °¡´É ¹°Ã¼ ÆÇ´Ü / Á¾·ù°¡ ´Ù¾çÇÒ ½Ã ºÐ·ù´Â TAG·Î ÇÒ ¿¹Á¤
+            //hitï¿½ï¿½ Ä³ï¿½ï¿½, layermaskï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ç´ï¿½ / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ð·ï¿½ï¿½ï¿½ TAGï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             _raycastHit = Physics2D.Raycast(ray.origin, _moveDir, _maxCheckDistance, LayerMask.GetMask("Interactable"));
 
             if (_raycastHit.collider != null)
             {
-                //hitÇÑ ¿ÀºêÁ§Æ®ÀÇ Æ÷Áö¼Ç °¡Á®¿Â ÈÄ ÇØ´ç ¿ÀºêÁ§Æ® À§Ä¡¿¡ text ¿Å±â°í on
+                //hitï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ä¡ï¿½ï¿½ text ï¿½Å±ï¿½ï¿½ on
                 PromptText.transform.position = _raycastHit.collider.gameObject.transform.position;
                 PromptText.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Space))
@@ -98,6 +98,7 @@ public class PlayerInteractController : MonoBehaviour
                     else if (_raycastHit.collider.gameObject.tag == "ResourceObject")
                         FarmOpen();
                     else if (_raycastHit.collider.gameObject.tag == "DisplayObject")
+                        // _raycastHit.collider.gameObject;
                         Display(_raycastHit.collider.gameObject.name);
                     else if (_raycastHit.collider.gameObject.tag == "ShopObject")
                         ShopOpen();

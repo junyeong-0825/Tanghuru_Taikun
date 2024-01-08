@@ -1240,7 +1240,7 @@ MonoBehaviour:
   PromptText: {fileID: 5177739819710548979}
   QuestList: {fileID: 0}
   Inventory: {fileID: 4672535107084844374}
-  ChoiceFruit: {fileID: 0}
+  ChoiceFruit: {fileID: 7978631336274722809}
   Farm: {fileID: 5555079236589442607}
   Shop: {fileID: 0}
 --- !u!114 &557696662
@@ -1416,6 +1416,12 @@ MonoBehaviour:
   - {fileID: 403527551}
   - {fileID: 709908512}
   inventoryWindow: {fileID: 4672535107084844374}
+  strawberry: {fileID: 848382536691245206, guid: b1ff2af5cd816488a8c5e1cafb81b186, type: 3}
+  strawberryTang: {fileID: 848382536691245206, guid: 9944bc3631c2840cabba9146db3ade12, type: 3}
+  orange: {fileID: 848382536691245206, guid: e01118ff894934f17b4f77aed91632ab, type: 3}
+  orangeTang: {fileID: 848382536691245206, guid: 854ee13fecd454353ba164314ddead4e, type: 3}
+  grape: {fileID: 848382536691245206, guid: 77c2f3e4043f7409aaaef5a5a3ce16dd, type: 3}
+  grapeTang: {fileID: 848382536691245206, guid: e70305ad8916c4b258bf4c6c1c982ffa, type: 3}
   onOpenInventory:
     m_PersistentCalls:
       m_Calls: []
@@ -24228,7 +24234,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7528458152395755964}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -24240,7 +24246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1178.5, y: -659}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!224 &4792699509831259793
@@ -33807,6 +33813,12 @@ MonoBehaviour:
   - {fileID: 5059029282294570644}
   - {fileID: 4162401537308785748}
   inventoryWindow: {fileID: 7528458152395755964}
+  strawberry: {fileID: 0}
+  strawberryTang: {fileID: 0}
+  orange: {fileID: 0}
+  orangeTang: {fileID: 0}
+  grape: {fileID: 0}
+  grapeTang: {fileID: 0}
   onOpenInventory:
     m_PersistentCalls:
       m_Calls: []
@@ -36006,7 +36018,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 5887996692516066473}
         m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
-        m_MethodName: GetResourceBtn
+        m_MethodName: GetItemBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36330,7 +36342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &7983681130059856884
 CanvasRenderer:
   m_ObjectHideFlags: 0
