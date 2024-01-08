@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public int Money { get; private set; }
     public int Sugar { get; private set; }
     public int Stick { get; private set; }
+    public int ChainBouns { get; private set; }
 
 
     private void Awake()
