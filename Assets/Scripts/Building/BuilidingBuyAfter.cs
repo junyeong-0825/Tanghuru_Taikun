@@ -4,11 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class BuilidingBuyAfter : MonoBehaviour
+public class BuildingBuyAfter : MonoBehaviour
 {
     public TMP_Text[] fruitCount;
 
-    float[] count;
+    private float[] count;
+
     private void Start()
     {
         count = new float[fruitCount.Length];
@@ -28,8 +29,11 @@ public class BuilidingBuyAfter : MonoBehaviour
         }
     }
 
-    public void Harvest()
+    public int Harvest(int itemNumber)
     {
-
+        int returnValue = 0;
+        returnValue = (int)count[itemNumber];
+        count[itemNumber] = 0;
+        return returnValue;
     }
 }

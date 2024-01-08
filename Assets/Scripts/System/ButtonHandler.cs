@@ -5,32 +5,35 @@ using UnityEngine;
 public class ButtonHandler : MonoBehaviour
 {
     private PlayerItemDataController _playerItemDataController;
-    private GameObject player;
+    private GameObject _player;
+    private BuildingBuyAfter _buildingBuyAfter;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        _playerItemDataController = player.GetComponent<PlayerItemDataController>();
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _playerItemDataController = _player.GetComponent<PlayerItemDataController>();
+        _buildingBuyAfter = GameManager.Instance.gameObject.GetComponent<BuildingBuyAfter>();
     }
 
     public void GetResourceBtn(int itemNumber)
     {
-        switch (itemNumber)
+        int resourceCount = _buildingBuyAfter.Harvest(itemNumber);
+        switch (itemNumber+1)
         {
             case 1:
-                _playerItemDataController.GetResource(Resources.RESOURCE1, 100);
+                _playerItemDataController.GetResource(Resources.RESOURCE1, resourceCount);
                 break;
             case 2:
-                _playerItemDataController.GetResource(Resources.RESOURCE2, 100);
+                _playerItemDataController.GetResource(Resources.RESOURCE2, resourceCount);
                 break;
             case 3:
-                _playerItemDataController.GetResource(Resources.RESOURCE3, 100);
+                _playerItemDataController.GetResource(Resources.RESOURCE3, resourceCount);
                 break;
             case 4:
-                _playerItemDataController.GetResource(Resources.RESOURCE4, 100);
+                _playerItemDataController.GetResource(Resources.RESOURCE4, resourceCount);
                 break;
             case 5:
-                _playerItemDataController.GetResource(Resources.RESOURCE5, 100);
+                _playerItemDataController.GetResource(Resources.RESOURCE5, resourceCount);
                 break;
         }
 

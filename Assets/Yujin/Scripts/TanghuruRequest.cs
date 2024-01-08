@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 public class TanghuluRequest : MonoBehaviour
 {
+    private PlayerItemDataController _playerItemDataController;
+    private GameObject _player;
+
     [System.Serializable]
     public class TanghuluType
     {
@@ -12,6 +15,12 @@ public class TanghuluRequest : MonoBehaviour
 
     public List<TanghuluType> tanghuluTypes;  // 탕후루 유형 목록
     private TanghuluType selectedTanghulu;    // 선택된 탕후루
+
+    private void Awake()
+    {
+        _player = GameObject.FindWithTag("Player");
+        _playerItemDataController = _player.GetComponent<PlayerItemDataController>();
+    }
 
     public void RequestTanghulu()
     {
@@ -26,7 +35,11 @@ public class TanghuluRequest : MonoBehaviour
         {
             Debug.Log("계산하시오!!!!");
             Debug.Log("계산된 가격: " + selectedTanghulu.price); // 가격 계산
-            // 필요한 추가 로직.. 게임 매니저에서 가격 +-하면 될듯?
+            if(_playerItemDataController.Display1 > 0)
+            {
+                Player.Instance.PlayerDataChange(1, 1000);
+                _playerItemDataController.SellItem(Displays.DISPLAY1);
+            }
             selectedTanghulu = null;  // 선택 초기화
         }
     }
