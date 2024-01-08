@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b69c1332a63f843468d65504a2a012d4, type: 3}
-  m_Name: Item_Grape
+  m_Name: Item_Strawberry_Tanghuru
   m_EditorClassIdentifier: 
-  displayName: "\uD3EC\uB3C4"
-  description: "\uD3EC\uB3C4\uB3C4\uB3C4\uB3C4"
-  price: 800
-  type: 0
-  icon: {fileID: 21300000, guid: 38b2c592abad0a140bba02c40b66b21e, type: 3}
+  displayName: "\uB538\uAE30 \uD0D5\uD6C4\uB8E8"
+  description: "\uC0C8\uCF64\uB2EC\uCF64 \uB538\uAE30\uB85C \uB9CC\uB4E0 \uD0D5\uD6C4\uB8E8"
+  price: 1000
+  type: 1
+  icon: {fileID: 0}
   canStack: 1
   maxStackAmount: 100

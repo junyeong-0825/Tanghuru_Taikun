@@ -1,16 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.Events;
 
 public class StoreManager : MonoBehaviour
 {
     //소지금에 대한 정보를 받아와야함
     protected Inventory inventory;
+    public TMP_Text gold;
+
+    public GameObject shopWindow;
+
+
+    [Header("Events")]
+    public UnityEvent onOpenStore;
+    public UnityEvent onCloseStore;
 
     void Awake()
     {
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
-        Debug.Log("1");
+        
     }
     //public void Sell(ItemData item)
     //{
@@ -22,11 +32,33 @@ public class StoreManager : MonoBehaviour
     //}
     public void Buy(ItemData item)
     {
-        if(inventory.gold > item.price) 
+        if(inventory.gold >= item.price) 
         {
             inventory.gold -= item.price;
             inventory.AddItem(item);
         }
         
+    }
+    public void OnShopBtn()
+    {
+        Toggle();
+    }
+
+    public void Toggle()
+    {
+        if (shopWindow.activeInHierarchy)
+        {
+            shopWindow.SetActive(false);
+            onCloseStore?.Invoke();
+        }
+        else
+        {
+            shopWindow.SetActive(true);
+            onOpenStore?.Invoke();
+        }
+    }
+    private void Update()
+    {
+        gold.text = inventory.gold.ToString();
     }
 }
