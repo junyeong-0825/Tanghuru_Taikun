@@ -10,7 +10,7 @@ public class TanghuluRequest : MonoBehaviour
     public class TanghuluType
     {
         public string name;  // 탕후루의 이름
-        public int price;    // 탕후루의 가격
+        public int number;    // 탕후루 번호
     }
 
     public List<TanghuluType> tanghuluTypes;  // 탕후루 유형 목록
@@ -26,16 +26,37 @@ public class TanghuluRequest : MonoBehaviour
     {
         int randomIndex = Random.Range(0, tanghuluTypes.Count); // 무작위 인덱스 선택
         selectedTanghulu = tanghuluTypes[randomIndex]; // 탕후루 선택
-        Debug.Log(selectedTanghulu.name + " 탕후루를 선택했습니다. 가격: " + selectedTanghulu.price);
+        Debug.Log(selectedTanghulu.name + " 탕후루를 선택했습니다. 가격: " + selectedTanghulu.number * 1000);
     }
 
     public void CalculatePrice()
     {
         if (selectedTanghulu != null)
         {
-            Debug.Log("계산하시오!!!!");
-            Debug.Log("계산된 가격: " + selectedTanghulu.price); // 가격 계산
-
+            switch (selectedTanghulu.number)
+            {
+                case 1:
+                    Player.Instance.PlayerDataChange(1, 1000);
+                    _playerItemDataController.SellItem(Displays.DISPLAY1);
+                    break;
+                case 2:
+                    Player.Instance.PlayerDataChange(1, 2000);
+                    _playerItemDataController.SellItem(Displays.DISPLAY2);
+                    break;
+                case 3:
+                    Player.Instance.PlayerDataChange(1, 3000);
+                    _playerItemDataController.SellItem(Displays.DISPLAY3);
+                    break;
+                case 4:
+                    Player.Instance.PlayerDataChange(1, 4000);
+                    _playerItemDataController.SellItem(Displays.DISPLAY4);
+                    break;
+                case 5:
+                    Player.Instance.PlayerDataChange(1, 5000);
+                    _playerItemDataController.SellItem(Displays.DISPLAY5);
+                    break;
+            }
+            Debug.Log("계산된 가격: " + selectedTanghulu.number * 1000); // 가격 계산
             selectedTanghulu = null;  // 선택 초기화
         }
     }

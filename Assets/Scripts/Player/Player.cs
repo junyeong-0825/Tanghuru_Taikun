@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         Level = 1;
         Stick = 100;
         Sugar = 1000;
-        Money = 100;
+        Money = 5000;
         ChainBouns = 1;
     }
 
