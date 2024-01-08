@@ -54,23 +54,24 @@ public class PlayerItemDataController : MonoBehaviour
 
     public void GetResource(Resources resourceNumber, int resourceCount)
     {
+        int bonusCount = Player.Instance.AdBonus1;
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
-                Resource1 += resourceCount;
+                Resource1 += resourceCount + bonusCount;
                 Debug.Log(Resource1);
                 break;
             case Resources.RESOURCE2:
-                Resource2 += resourceCount;
+                Resource2 += resourceCount + bonusCount;
                 break;
             case Resources.RESOURCE3:
-                Resource3 += resourceCount;
+                Resource3 += resourceCount + bonusCount;
                 break;
             case Resources.RESOURCE4:
-                Resource4 += resourceCount;
+                Resource4 += resourceCount + bonusCount;
                 break;
             case Resources.RESOURCE5:
-                Resource5 += resourceCount;
+                Resource5 += resourceCount + bonusCount;
                 break;
 
         }
@@ -80,30 +81,31 @@ public class PlayerItemDataController : MonoBehaviour
 
     public void Cooking(Items itemNumber)
     {
+        int bonusCount = Player.Instance.AdBonus2;
         switch (itemNumber)
         {
             case Items.ITEM1:
-                Item1 += Resource1; 
+                Item1 += Resource1 + bonusCount; 
                 Player.Instance.PlayerDataChange(2, Resource1);
                 Resource1 = 0;
                 break;
             case Items.ITEM2:
-                Item2 += Resource2;
+                Item2 += Resource2 + bonusCount;
                 Player.Instance.PlayerDataChange(2, Resource2);
                 Resource2 = 0;
                 break;
             case Items.ITEM3:
-                Item3 += Resource3;
+                Item3 += Resource3 + bonusCount;
                 Player.Instance.PlayerDataChange(2, Resource3);
                 Resource3 = 0;
                 break;
             case Items.ITEM4:
-                Item4 += Resource4;
+                Item4 += Resource4 + bonusCount;
                 Player.Instance.PlayerDataChange(2, Resource4);
                 Resource4 = 0;
                 break;
             case Items.ITEM5:
-                Item5 += Resource5;
+                Item5 += Resource5 + bonusCount;
                 Player.Instance.PlayerDataChange(2, Resource5);
                 Resource5 = 0;
                 break;

@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     public int Sugar { get; private set; }
     public int Stick { get; private set; }
     public int ChainBouns { get; private set; }
-    public int AdBouns { get; private set; }
+    public int AdBonus1 { get; private set; }
+    public int AdBonus2 { get; private set; }
 
 
     private void Awake()
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
         Stick = 100;
         Sugar = 1000;
         Money = 100;
+        ChainBouns = 1;
     }
 
     public void CallLevelUpEvent(int level)
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour
     {
         if(type == 1)
         {
-            Money += number;
+            Money += (int)(number*ChainBouns);
         }
         else if(type == 2)
         {
@@ -74,6 +76,21 @@ public class Player : MonoBehaviour
         {
             Sugar -= number;
         }
+    }
+
+    public void ChangeAdBonus1(int bonus)
+    {
+        AdBonus1 = bonus;
+    }
+
+    public void ChangeAdBonus2(int bonus)
+    {
+        AdBonus2 = bonus;
+    }
+
+    public void ChangeChainBonus()
+    {
+        ChainBouns++;
     }
 
 }

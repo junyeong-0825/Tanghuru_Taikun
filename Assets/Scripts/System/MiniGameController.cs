@@ -46,7 +46,6 @@ public class MiniGameController : MonoBehaviour
 
     public void GetPointBtn()
     {
-        Debug.Log(_clearNum);
         _clearNum++;
     }
 

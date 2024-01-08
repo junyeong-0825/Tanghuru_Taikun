@@ -63,4 +63,30 @@ public class ButtonHandler : MonoBehaviour
 
     }
 
+    public void ChainUpgradeBtn()
+    {
+        int num = Random.Range(0, 10);
+        int charge = Player.Instance.ChainBouns * 1000;
+        Player.Instance.PlayerDataChange(1, -charge);
+        if(num > Player.Instance.ChainBouns)
+        {
+            Player.Instance.ChangeChainBonus();
+        }
+    }
+
+    public void GetAdBtn1()
+    {
+        int num = Random.Range(0, 10);
+        Player.Instance.PlayerDataChange(1, -1000);
+        Player.Instance.ChangeAdBonus1(num);
+
+    }
+
+    public void GetAdBtn2()
+    {
+        int num = Random.Range(0, 10);
+        Player.Instance.PlayerDataChange(1, -1000);
+        Player.Instance.ChangeAdBonus2(num);
+    }
+
 }
