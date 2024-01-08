@@ -1,31 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class StoreManager : MonoBehaviour
 {
     //소지금에 대한 정보를 받아와야함
-    protected StoreTest_HaveItems haveItem;
+    protected Inventory inventory;
+
     void Awake()
     {
-        haveItem = GetComponent<StoreTest_HaveItems>();
+        inventory = GameObject.Find("Player").GetComponent<Inventory>();
+        Debug.Log("1");
     }
-    public void Sell(int sellingPrice, int numberOfItems)
+    //public void Sell(ItemData item)
+    //{
+    //    if (numberOfItems > 0)
+    //    {
+    //        inventory.gold += item.price;
+    //        numberOfItems -= 1;
+    //    }
+    //}
+    public void Buy(ItemData item)
     {
-        if (numberOfItems > 0)
+        if(inventory.gold > item.price) 
         {
-            haveItem.haveGold += sellingPrice;
-            numberOfItems -= 1;
-        }
-        
-    }
-    public void Buy(int purchasePrice, int numberOfItems)
-    {
-        if(haveItem.haveGold > purchasePrice) 
-        {
-            haveItem.haveGold -= purchasePrice;
-            numberOfItems += 1;
+            inventory.gold -= item.price;
+            inventory.AddItem(item);
         }
         
     }
