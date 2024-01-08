@@ -50,68 +50,74 @@ public class PlayerItemDataController : MonoBehaviour
     public int Display5 { get; private set; }
 
 
-
-
     public void GetResource(Resources resourceNumber, int resourceCount)
     {
-        int bonusCount = Player.Instance.AdBonus1;
         switch (resourceNumber)
         {
             case Resources.RESOURCE1:
-                Resource1 += resourceCount + bonusCount;
+                for (int i = 0; i < resourceCount; i++)
+                {
+                    Inventory.instance.AddItem(Inventory.instance.strawberry.item);
+                }
+                Resource1 += resourceCount;
                 Debug.Log(Resource1);
                 break;
             case Resources.RESOURCE2:
-                Resource2 += resourceCount + bonusCount;
+                for (int i = 0; i < resourceCount; i++)
+                {
+                    Inventory.instance.AddItem(Inventory.instance.orange.item);
+                }
+                Resource2 += resourceCount;
                 break;
             case Resources.RESOURCE3:
-                Resource3 += resourceCount + bonusCount;
+                for (int i = 0; i < resourceCount; i++)
+                {
+                    Inventory.instance.AddItem(Inventory.instance.grape.item);
+                }
+                Resource3 += resourceCount;
                 break;
             case Resources.RESOURCE4:
-                Resource4 += resourceCount + bonusCount;
+                Resource4 += resourceCount;
                 break;
             case Resources.RESOURCE5:
-                Resource5 += resourceCount + bonusCount;
+                Resource5 += resourceCount;
                 break;
 
         }
-
     }
 
 
     public void Cooking(Items itemNumber)
     {
-        int bonusCount = Player.Instance.AdBonus2;
         switch (itemNumber)
         {
             case Items.ITEM1:
-                Item1 += Resource1 + bonusCount; 
+                Item1 += Resource1;
+                Debug.Log(Resource1);
+                Inventory.instance.ChangeItem(Inventory.instance.strawberry.item, Inventory.instance.strawberryTang.item);
                 Player.Instance.PlayerDataChange(2, Resource1);
-                Player.Instance.PlayerDataChange(3, Resource1);
                 Resource1 = 0;
                 break;
             case Items.ITEM2:
-                Item2 += Resource2 + bonusCount;
+                Item2 += Resource2;
+                Inventory.instance.ChangeItem(Inventory.instance.orange.item, Inventory.instance.orangeTang.item);
                 Player.Instance.PlayerDataChange(2, Resource2);
-                Player.Instance.PlayerDataChange(3, Resource2);
                 Resource2 = 0;
                 break;
             case Items.ITEM3:
-                Item3 += Resource3 + bonusCount;
+                Item3 += Resource3;
+                Inventory.instance.ChangeItem(Inventory.instance.grape.item, Inventory.instance.grapeTang.item);
                 Player.Instance.PlayerDataChange(2, Resource3);
-                Player.Instance.PlayerDataChange(3, Resource3);
                 Resource3 = 0;
                 break;
             case Items.ITEM4:
-                Item4 += Resource4 + bonusCount;
+                Item4 += Resource4;
                 Player.Instance.PlayerDataChange(2, Resource4);
-                Player.Instance.PlayerDataChange(3, Resource4);
                 Resource4 = 0;
                 break;
             case Items.ITEM5:
-                Item5 += Resource5 + bonusCount;
+                Item5 += Resource5;
                 Player.Instance.PlayerDataChange(2, Resource5);
-                Player.Instance.PlayerDataChange(3, Resource5);
                 Resource5 = 0;
                 break;
 
@@ -125,6 +131,37 @@ public class PlayerItemDataController : MonoBehaviour
         {
             case Displays.DISPLAY1:
                 Display1 += Item1;
+                Item1 = 0;
+                break;
+            case Displays.DISPLAY2:
+                Display2 += Item2;
+                Item1 = 0;
+                break;
+            case Displays.DISPLAY3:
+                Display3 += Item3;
+                Item1 = 0;
+                break;
+            case Displays.DISPLAY4:
+                Display4 += Item4;
+                Item1 = 0;
+                break;
+            case Displays.DISPLAY5:
+                Display5 += Item5;
+                Item1 = 0;
+                break;
+
+        }
+    }
+    
+    public void DisplayItemSet(Displays displayNumber, GameObject inventory)
+    {
+        MachineInventory machineInventory = inventory.GetComponent<MachineInventory>();
+        machineInventory.OnInventoryButton();
+        
+        switch (displayNumber)
+        {
+            case Displays.DISPLAY1:
+                Inventory.instance.SendToDisplay(Inventory.instance.strawberryTang.item, machineInventory);
                 Item1 = 0;
                 break;
             case Displays.DISPLAY2:
