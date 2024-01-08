@@ -12,6 +12,7 @@ public class StoreManager : MonoBehaviour
 
     public GameObject shopWindow;
 
+    public static StoreManager Instance;
 
     [Header("Events")]
     public UnityEvent onOpenStore;
@@ -19,6 +20,7 @@ public class StoreManager : MonoBehaviour
 
     void Awake()
     {
+        Instance = this;
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
         
     }
