@@ -19,15 +19,25 @@ public class CustomerAI2D : MonoBehaviour
     void Start()
     {
         popUI.gameObject.SetActive(false);
-        GameObject[] waypointObjects = GameObject.FindGameObjectsWithTag("Waypoint");
-        GameObject _exitPoint = GameObject.FindGameObjectWithTag("ExitPoint");
+        //GameObject[] waypointObjects = GameObject.FindGameObjectsWithTag("Waypoint");
+        //GameObject _exitPoint = GameObject.FindGameObjectWithTag("ExitPoint");
 
-        waypoints = new Transform[waypointObjects.Length];
-        exitPoint = _exitPoint.transform;
-        for (int i = 0; i < waypointObjects.Length; i++)
+         waypoints = new Transform[9];
+
+        for (int i = 0; i < GameManager.Instance.waypoints.Length; i++)
         {
-            waypoints[i] = waypointObjects[i].transform;
+            waypoints[i] = GameManager.Instance.waypoints[i];
         }
+
+        exitPoint = GameManager.Instance.exitPoint;
+
+
+        //waypoints = new Transform[waypointObjects.Length];
+        //exitPoint = _exitPoint.transform;
+        //for (int i = 0; i < waypointObjects.Length; i++)
+        //{
+        //    waypoints[i] = waypointObjects[i].transform;
+        //}
 
         // 첫 번째 방문할 웨이포인트를 무작위 선택
         currentWaypointIndex = Random.Range(0, 8);

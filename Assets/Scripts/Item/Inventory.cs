@@ -39,6 +39,9 @@ public class Inventory : MonoBehaviour
     public UnityEvent onOpenInventory;
     public UnityEvent onCloseInventory;
 
+    [Header("Money")]
+    public int gold = 10000;
+
     public static Inventory instance;
     void Awake()
     {

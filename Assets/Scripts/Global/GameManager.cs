@@ -7,6 +7,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public Transform[] waypoints;
+    public Transform exitPoint;
 
     // Start is called before the first frame update
     private void Awake()
@@ -21,5 +23,6 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
 
 }
