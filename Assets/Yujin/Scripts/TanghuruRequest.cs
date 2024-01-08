@@ -19,7 +19,7 @@ public class TanghuluRequest : MonoBehaviour
     private void Awake()
     {
         _player = GameObject.FindWithTag("Player");
-        _playerItemDataController = _player.GetComponent<PlayerItemDataController>();
+        //_playerItemDataController = _player.GetComponent<PlayerItemDataController>();
     }
 
     public void RequestTanghulu()
@@ -35,12 +35,15 @@ public class TanghuluRequest : MonoBehaviour
         {
             Debug.Log("계산하시오!!!!");
             Debug.Log("계산된 가격: " + selectedTanghulu.price); // 가격 계산
+
+            /*
             if(_playerItemDataController.Display1 > 0)
             {
-                Player.Instance.PlayerDataChange(1, 1000);
+                 Player.Instance.PlayerDatachange(selectedTanghulu, selectedTanghulu.price);
                 _playerItemDataController.SellItem(Displays.DISPLAY1);
             }
             selectedTanghulu = null;  // 선택 초기화
+            */
         }
     }
 }
