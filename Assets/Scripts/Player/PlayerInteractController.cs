@@ -7,19 +7,27 @@ using UnityEngine.UIElements;
 public class PlayerInteractController : MonoBehaviour
 {
 
-    private float _maxCheckDistance = 1f;
     private Ray ray;
     private RaycastHit2D _raycastHit;
     private Vector2 _moveDir;
+    private float _maxCheckDistance = 1f;
     private bool IsInteracting = false;
+    private PlayerItemDataController _playerItemDataController;
+    private GameObject player;
+
     public GameObject PromptText;
+    public GameObject QuestList;
     public GameObject Inventory;
+    public GameObject ChoiceFruit;
     public GameObject Farm;
+    public GameObject Shop;
 
 
     private void Awake()
     {
         ray = new Ray();
+        player = GameObject.FindGameObjectWithTag("Player");
+        _playerItemDataController = player.GetComponent<PlayerItemDataController>();
     }
 
     private void Update()
@@ -32,8 +40,34 @@ public class PlayerInteractController : MonoBehaviour
                 Inventory.SetActive(true);
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (QuestList.activeSelf == true)
+                QuestList.SetActive(false);
+            else if (QuestList.activeSelf == false)
+                QuestList.SetActive(true);
+        }
 
-        if(IsInteracting == false)
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (Farm.activeSelf == true)
+                Farm.SetActive(false);
+            else if (Farm.activeSelf == false)
+                Farm.SetActive(true);
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (Shop.activeSelf == true)
+                Shop.SetActive(false);
+            else if (Shop.activeSelf == false)
+                Shop.SetActive(true);
+        }
+
+
+        if (IsInteracting == false)
         {
             //상, 하, 좌, 우 키 입력마다 ray 방향 전환
             ray.origin = this.transform.position;
@@ -62,9 +96,11 @@ public class PlayerInteractController : MonoBehaviour
                     if (_raycastHit.collider.gameObject.tag == "CookObject")
                         Cooking(_raycastHit.collider.gameObject.name);
                     else if (_raycastHit.collider.gameObject.tag == "ResourceObject")
-                        GetResources();
+                        FarmOpen();
                     else if (_raycastHit.collider.gameObject.tag == "DisplayObject")
                         Display(_raycastHit.collider.gameObject.name);
+                    else if (_raycastHit.collider.gameObject.tag == "ShopObject")
+                        ShopOpen();
 
                 }
             }
@@ -79,31 +115,45 @@ public class PlayerInteractController : MonoBehaviour
 
     private void Cooking(string name)
     {
-        Debug.Log("Cooking");
         switch(name)
         {
-            case "StrawberryMaker":
-                Player.Instance.Cooking(Resources.RESOURCE1);
+            case "Maker":
+                ChoiceFruit.SetActive(true);
                 break;
         }
     }
 
     private void Display(string name)
     {
-        Debug.Log("Display");
         switch (name)
         {
             case "StrawberryTable":
-                Player.Instance.DisplayItem(Items.ITEM1);
+                _playerItemDataController.DisplayItem(Displays.DISPLAY1);
+                break;
+            case "Table2":
+                _playerItemDataController.DisplayItem(Displays.DISPLAY2);
+                break;
+            case "Table3":
+                _playerItemDataController.DisplayItem(Displays.DISPLAY3);
+                break;
+            case "Table4":
+                _playerItemDataController.DisplayItem(Displays.DISPLAY4);
+                break;
+            case "Table5":
+                _playerItemDataController.DisplayItem(Displays.DISPLAY5);
                 break;
         }
     }
 
 
-    private void GetResources()
+    private void FarmOpen()
     {
-        Debug.Log("GetResource");
         Farm.SetActive(true);
+    }
+
+    private void ShopOpen()
+    {
+        Shop.SetActive(true);
     }
 
 
