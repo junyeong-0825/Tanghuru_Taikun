@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     {
         Level = 1;
         Stick = 100;
-        Sugar = 1000;
+        Sugar = 10000;
         Money = 5000;
         ChainBouns = 1;
     }
@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
         }
         else if(type == 3)
         {
+            if(Sugar > 0)
             Sugar -= number;
         }
     }

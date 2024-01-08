@@ -49,7 +49,7 @@ public class CustomerAI2D : MonoBehaviour
         }
         else
         {
-            if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
+            if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)  
             {
                 if (waitTimer > 0)
                 {
