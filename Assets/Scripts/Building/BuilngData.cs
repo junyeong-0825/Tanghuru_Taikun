@@ -40,7 +40,16 @@ public class BuilngData : MonoBehaviour
         if (selectIndex >= 0 && selectIndex < builidings.Length)
         {
             print(selectIndex);
-            builidings[selectIndex].purchase = true;
+            {
+                if(Player.Instance.Money > selectIndex * 10000)
+                {
+                    Player.Instance.PlayerDataChange(1, -selectIndex * 10000);
+                    builidings[selectIndex].purchase = true;
+                }
+      
+            }
+
+
         }
     }
 

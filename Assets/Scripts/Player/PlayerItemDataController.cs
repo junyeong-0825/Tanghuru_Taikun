@@ -58,6 +58,7 @@ public class PlayerItemDataController : MonoBehaviour
         {
             case Resources.RESOURCE1:
                 Resource1 += resourceCount;
+                Debug.Log(Resource1);
                 break;
             case Resources.RESOURCE2:
                 Resource2 += resourceCount;
@@ -74,7 +75,6 @@ public class PlayerItemDataController : MonoBehaviour
 
         }
 
-        Debug.Log(Resource1);
     }
 
 
@@ -138,6 +138,28 @@ public class PlayerItemDataController : MonoBehaviour
                 break;
 
         }
-        Debug.Log(Display1);
+    }
+
+    public void SellItem(Displays displayNumber)
+    {
+        switch (displayNumber)
+        {
+            case Displays.DISPLAY1:
+                Display1--;
+                break;
+            case Displays.DISPLAY2:
+                Display2--;
+                break;
+            case Displays.DISPLAY3:
+                Display3--;
+                break;
+            case Displays.DISPLAY4:
+                Display4--;
+                break;
+            case Displays.DISPLAY5:
+                Display5--;
+                break;
+
+        }
     }
 }
