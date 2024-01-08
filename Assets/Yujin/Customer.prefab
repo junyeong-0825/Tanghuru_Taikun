@@ -221,7 +221,7 @@ Transform:
   - {fileID: 4691986932998644190}
   - {fileID: 3594133522990476156}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3719606084079343277
 Rigidbody2D:
@@ -294,12 +294,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2477065128273374130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41066b3cee259f3498de0fdbd6a8634d, type: 3}
+  m_Script: {fileID: 11500000, guid: 868880da567a7884f83160158732e453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUI: {fileID: 2224673665792978059}
+  popUI: {fileID: 0}
   waypoints:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

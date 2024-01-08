@@ -11,7 +11,8 @@ public class QuestSystem : MonoBehaviour
 
     private void Start()
     {
-        for(int i=0; i<_questCheck.Length; i++)
+        _questCheck = new bool[4];
+        for(int i=0; i<4; i++)
         {
             _questCheck[i] = false;
         }
