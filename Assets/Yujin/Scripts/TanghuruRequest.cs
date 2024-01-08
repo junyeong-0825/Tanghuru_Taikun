@@ -18,7 +18,7 @@ public class TanghuluRequest : MonoBehaviour
 
     private void Awake()
     {
-        _player = GameObject.FindWithTag("player");
+        _player = GameObject.FindWithTag("Player");
         _playerItemDataController = _player.GetComponent<PlayerItemDataController>();
     }
 

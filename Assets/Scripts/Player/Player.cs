@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public int Sugar { get; private set; }
     public int Stick { get; private set; }
     public int ChainBouns { get; private set; }
+    public int AdBouns { get; private set; }
 
 
     private void Awake()
