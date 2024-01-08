@@ -152,6 +152,37 @@ public class PlayerItemDataController : MonoBehaviour
 
         }
     }
+    
+    public void DisplayItemSet(Displays displayNumber, GameObject inventory)
+    {
+        MachineInventory machineInventory = inventory.GetComponent<MachineInventory>();
+        machineInventory.OnInventoryButton();
+        
+        switch (displayNumber)
+        {
+            case Displays.DISPLAY1:
+                Inventory.instance.SendToDisplay(Inventory.instance.strawberryTang.item, machineInventory);
+                Item1 = 0;
+                break;
+            case Displays.DISPLAY2:
+                Display2 += Item2;
+                Item1 = 0;
+                break;
+            case Displays.DISPLAY3:
+                Display3 += Item3;
+                Item1 = 0;
+                break;
+            case Displays.DISPLAY4:
+                Display4 += Item4;
+                Item1 = 0;
+                break;
+            case Displays.DISPLAY5:
+                Display5 += Item5;
+                Item1 = 0;
+                break;
+
+        }
+    }
 
     public void SellItem(Displays displayNumber)
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -98,8 +99,10 @@ public class PlayerInteractController : MonoBehaviour
                     else if (_raycastHit.collider.gameObject.tag == "ResourceObject")
                         FarmOpen();
                     else if (_raycastHit.collider.gameObject.tag == "DisplayObject")
-                        // _raycastHit.collider.gameObject;
+                    {
                         Display(_raycastHit.collider.gameObject.name);
+                        DisplayItemSet(_raycastHit.collider.gameObject.name, _raycastHit.collider.GameObject());
+                    }
                     else if (_raycastHit.collider.gameObject.tag == "ShopObject")
                         ShopOpen();
 
@@ -124,6 +127,28 @@ public class PlayerInteractController : MonoBehaviour
         }
     }
 
+    private void DisplayItemSet(string name,GameObject inventory)
+    {
+        switch (name)
+        {
+            case "StrawberryTable":
+                _playerItemDataController.DisplayItemSet(Displays.DISPLAY1, inventory);
+                break;
+            case "Table2":
+                _playerItemDataController.DisplayItemSet(Displays.DISPLAY2, inventory);
+                break;
+            case "Table3":
+                _playerItemDataController.DisplayItemSet(Displays.DISPLAY3, inventory);
+                break;
+            case "Table4":
+                _playerItemDataController.DisplayItemSet(Displays.DISPLAY4, inventory);
+                break;
+            case "Table5":
+                _playerItemDataController.DisplayItemSet(Displays.DISPLAY5, inventory);
+                break;
+        }
+    }
+    
     private void Display(string name)
     {
         switch (name)

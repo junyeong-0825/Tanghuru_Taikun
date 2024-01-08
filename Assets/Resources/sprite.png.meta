@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprite_0
+      name: Display
       rect:
         serializedVersion: 2
         x: 24
@@ -834,12 +834,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Display: 1357502188
       Grape: 1981633002
       Grape_Tang: -1570533906
       Orange: -939337293
       Orange_Tang: 90487194
       Strawberry: 410504604
-      sprite_0: 1357502188
       sprite_1: 972555366
       sprite_10: 1513243946
       sprite_11: -677523746
