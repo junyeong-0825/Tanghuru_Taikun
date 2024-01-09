@@ -17,7 +17,7 @@ public class MiniGameController : MonoBehaviour
     private int _clearNum;
     private bool InGame;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(InGame == true)
         {

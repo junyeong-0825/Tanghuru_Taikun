@@ -7,6 +7,8 @@ public class ButtonHandler : MonoBehaviour
     private PlayerItemDataController _playerItemDataController;
     private GameObject _player;
     private BuildingBuyAfter _buildingBuyAfter;
+    private int _money;
+    private int _chain;
 
     private void Awake()
     {
@@ -65,28 +67,43 @@ public class ButtonHandler : MonoBehaviour
 
     public void ChainUpgradeBtn()
     {
+        _money = Player.Instance.Money;
+        _chain = Player.Instance.ChainBouns;
         int num = Random.Range(0, 10);
-        int charge = Player.Instance.ChainBouns * 1000;
-        Player.Instance.PlayerDataChange(1, -charge);
-        if(num > Player.Instance.ChainBouns)
+        int charge = _chain * 1000;
+        if(_money >= charge)
         {
-            Player.Instance.ChangeChainBonus();
+            Player.Instance.PlayerDataChange(0, charge);
+            if (num > _chain)
+            {
+                Player.Instance.ChangeChainBonus();
+            }
         }
     }
 
     public void GetAdBtn1()
     {
-        int num = Random.Range(0, 10);
-        Player.Instance.PlayerDataChange(1, -1000);
-        Player.Instance.ChangeAdBonus1(num);
+        _money = Player.Instance.Money;
+        if (_money >= 10000)
+        {
+            int num = Random.Range(0, 10);
+            Player.Instance.PlayerDataChange(0, 10000);
+            Player.Instance.ChangeAdBonus1(num);
+
+        }
 
     }
 
     public void GetAdBtn2()
     {
-        int num = Random.Range(0, 10);
-        Player.Instance.PlayerDataChange(1, -1000);
-        Player.Instance.ChangeAdBonus2(num);
+        _money = Player.Instance.Money;
+        if (_money >= 10000)
+        {
+            int num = Random.Range(0, 10);
+            Player.Instance.PlayerDataChange(0, 10000);
+            Player.Instance.ChangeAdBonus2(num);
+        }
+
     }
 
 }

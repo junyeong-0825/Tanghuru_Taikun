@@ -36,27 +36,45 @@ public class TanghuluRequest : MonoBehaviour
             switch (selectedTanghulu.number)
             {
                 case 1:
-                    Player.Instance.PlayerDataChange(1, 1000);
-                    _playerItemDataController.SellItem(Displays.DISPLAY1);
+                    if(_playerItemDataController.Display1 > 0)
+                    {
+                        Player.Instance.PlayerDataChange(1, 1000);
+                        _playerItemDataController.SellItem(Displays.DISPLAY1);
+                    }
                     break;
                 case 2:
-                    Player.Instance.PlayerDataChange(1, 2000);
-                    _playerItemDataController.SellItem(Displays.DISPLAY2);
+                    if (_playerItemDataController.Display1 > 0)
+                    {
+                        Player.Instance.PlayerDataChange(1, 2000);
+                        _playerItemDataController.SellItem(Displays.DISPLAY2);
+                    }
+                      
                     break;
                 case 3:
-                    Player.Instance.PlayerDataChange(1, 3000);
-                    _playerItemDataController.SellItem(Displays.DISPLAY3);
+                    if (_playerItemDataController.Display1 > 0)
+                    {
+                        Player.Instance.PlayerDataChange(1, 3000);
+                        _playerItemDataController.SellItem(Displays.DISPLAY3);
+                    }
+                       
                     break;
                 case 4:
-                    Player.Instance.PlayerDataChange(1, 4000);
-                    _playerItemDataController.SellItem(Displays.DISPLAY4);
+                    if (_playerItemDataController.Display1 > 0)
+                    {
+                        Player.Instance.PlayerDataChange(1, 4000);
+                        _playerItemDataController.SellItem(Displays.DISPLAY4);
+                    }
+                      
                     break;
                 case 5:
-                    Player.Instance.PlayerDataChange(1, 5000);
-                    _playerItemDataController.SellItem(Displays.DISPLAY5);
+                    if (_playerItemDataController.Display1 > 0)
+                    {
+                        Player.Instance.PlayerDataChange(1, 5000);
+                        _playerItemDataController.SellItem(Displays.DISPLAY5);
+                    }
+               
                     break;
             }
-            Debug.Log("계산된 가격: " + selectedTanghulu.number * 1000); // 가격 계산
             selectedTanghulu = null;  // 선택 초기화
         }
     }

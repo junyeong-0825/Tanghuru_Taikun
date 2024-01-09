@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class QuestSystem : MonoBehaviour
@@ -7,6 +8,7 @@ public class QuestSystem : MonoBehaviour
     private bool[] _questCheck;
     public GameObject[] Current;
     public GameObject[] Reward;
+    public TextMeshProUGUI QuestDescription;
     private int count;
 
     private void Start()
@@ -30,6 +32,7 @@ public class QuestSystem : MonoBehaviour
             QuestCheck4();
 
         count = Player.Instance.Sugar;
+        QuestDescriptionUpdate();
     }
 
     private void QuestCheck1()
@@ -88,6 +91,31 @@ public class QuestSystem : MonoBehaviour
                 _questCheck[3] = true;
                 Player.Instance.PlayerDataChange(1, 1000000);
             }
+        }
+
+    }
+
+    private void QuestDescriptionUpdate()
+    {
+        if (_questCheck[0] == false && Player.Instance.Level > 1)
+        {
+            QuestDescription.text = "Get 10000 Gold";
+        }
+        else if (_questCheck[1] == false && Player.Instance.Level > 3)
+        {
+            QuestDescription.text = "Achive Tanghuru make + 5";
+        }
+        else if (_questCheck[2] == false && Player.Instance.Level > 5)
+        {
+            QuestDescription.text = "Open 8 Chain Store";    
+        }
+        else if (_questCheck[3] == false && Player.Instance.Level > 7)
+        {
+            QuestDescription.text = "Make 9999 Tanghuru";
+        }
+        else
+        {
+            QuestDescription.text = "Waiting Next Mission";
         }
 
     }
