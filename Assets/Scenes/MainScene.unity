@@ -2255,6 +2255,7 @@ MonoBehaviour:
   - {fileID: 157161466}
   - {fileID: 1501361686}
   - {fileID: 1096906878}
+  QuestDescription: {fileID: 3779576709833016413}
 --- !u!1 &469004277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,7 +3341,7 @@ GameObject:
   - component: {fileID: 558114943}
   - component: {fileID: 558114942}
   m_Layer: 5
-  m_Name: NewChain
+  m_Name: Special
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9323,7 +9324,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD2B9\uC218\uD6A8\uACFC \uBF51\uAE30 (1\uD68C 1000\uC6D0)"
+  m_Text: "\uD2B9\uC218\uD6A8\uACFC \uBF51\uAE30 (1\uD68C 10000\uC6D0)"
 --- !u!222 &1437364263
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16785,7 +16786,7 @@ GameObject:
   - component: {fileID: 8205769977459455569}
   - component: {fileID: 6955310546990002581}
   m_Layer: 5
-  m_Name: AdImage
+  m_Name: NewChainImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43077,7 +43078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &7983681130059856884
 CanvasRenderer:
   m_ObjectHideFlags: 0
