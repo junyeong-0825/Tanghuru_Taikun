@@ -93,7 +93,6 @@ public class PlayerItemDataController : MonoBehaviour
         {
             case Items.ITEM1:
                 Item1 += Resource1;
-                Debug.Log(Resource1);
                 Inventory.instance.ChangeItem(Inventory.instance.strawberry.item, Inventory.instance.strawberryTang.item);
                 Player.Instance.PlayerDataChange(2, Resource1);
                 Player.Instance.PlayerDataChange(3, Resource1);
