@@ -166,3 +166,7 @@
  1. 이동: 손님이 8개의 진열대중 랜덤으로 한곳을 지정하여 이동
  2. 탕후루 선택: 방문한 진열대에서 탕후루 선택 후 TanghuluRequest에서 RequestTanghulu()호출
  3. 체크아웃: TanghuruRequest에서 CalculatePrice()호출 후 출구로 이동
+#### 2. CustomserSpawner : 일정시간 간격으로 매장 내 손님을 생성합니다.
+#### 3. TanghuRequest : 탕후루를 결제
+ 1. 탕후루 요청: 탕후루 리스트에서 탕후루를 랜덤으로 요청합니다
+ 2. 계산 : 요청된 탕후루 정보를 바탕으로_playerItemDataComtroller에 결제내역을 반영합니다.
