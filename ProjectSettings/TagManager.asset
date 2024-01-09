@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CookObject
+  - ResourceObject
+  - DisplayObject
+  - ShopObject
+  - Waypoint
+  - ExitPoint
   layers:
   - Default
   - TransparentFX
@@ -11,6 +17,7 @@ TagManager:
   - 
   - Water
   - UI
+  - Interactable
   - 
   - 
   - 
@@ -34,9 +41,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Ingredients
+  - Machine
   m_SortingLayers:
   - name: Default
     uniqueID: 0
