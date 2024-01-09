@@ -12,6 +12,7 @@ public class StoreManager : MonoBehaviour
 
     public GameObject shopWindow;
 
+    public static StoreManager Instance;
 
     [Header("Events")]
     public UnityEvent onOpenStore;
@@ -19,6 +20,7 @@ public class StoreManager : MonoBehaviour
 
     void Awake()
     {
+        Instance = this;
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
         
     }
@@ -32,9 +34,10 @@ public class StoreManager : MonoBehaviour
     //}
     public void Buy(ItemData item)
     {
-        if(inventory.gold >= item.price) 
+        if(Player.Instance.Money >= item.price) 
         {
-            inventory.gold -= item.price;
+            
+            Player.Instance.PlayerDataChange(1, -item.price);
             inventory.AddItem(item);
         }
         
@@ -59,6 +62,6 @@ public class StoreManager : MonoBehaviour
     }
     private void Update()
     {
-        gold.text = inventory.gold.ToString();
+        gold.text = Player.Instance.Money.ToString();
     }
 }
