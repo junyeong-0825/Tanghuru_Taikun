@@ -93,31 +93,35 @@ public class PlayerItemDataController : MonoBehaviour
         {
             case Items.ITEM1:
                 Item1 += Resource1;
-                Debug.Log(Resource1);
                 Inventory.instance.ChangeItem(Inventory.instance.strawberry.item, Inventory.instance.strawberryTang.item);
                 Player.Instance.PlayerDataChange(2, Resource1);
+                Player.Instance.PlayerDataChange(3, Resource1);
                 Resource1 = 0;
                 break;
             case Items.ITEM2:
                 Item2 += Resource2;
                 Inventory.instance.ChangeItem(Inventory.instance.orange.item, Inventory.instance.orangeTang.item);
                 Player.Instance.PlayerDataChange(2, Resource2);
+                Player.Instance.PlayerDataChange(3, Resource2);
                 Resource2 = 0;
                 break;
             case Items.ITEM3:
                 Item3 += Resource3;
                 Inventory.instance.ChangeItem(Inventory.instance.grape.item, Inventory.instance.grapeTang.item);
                 Player.Instance.PlayerDataChange(2, Resource3);
+                Player.Instance.PlayerDataChange(3, Resource3);
                 Resource3 = 0;
                 break;
             case Items.ITEM4:
                 Item4 += Resource4;
                 Player.Instance.PlayerDataChange(2, Resource4);
+                Player.Instance.PlayerDataChange(3, Resource4);
                 Resource4 = 0;
                 break;
             case Items.ITEM5:
                 Item5 += Resource5;
                 Player.Instance.PlayerDataChange(2, Resource5);
+                Player.Instance.PlayerDataChange(3, Resource5);
                 Resource5 = 0;
                 break;
 

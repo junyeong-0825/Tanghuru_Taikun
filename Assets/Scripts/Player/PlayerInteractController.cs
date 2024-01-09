@@ -101,7 +101,7 @@ public class PlayerInteractController : MonoBehaviour
                     else if (_raycastHit.collider.gameObject.tag == "DisplayObject")
                     {
                         Display(_raycastHit.collider.gameObject.name);
-                        DisplayItemSet(_raycastHit.collider.gameObject.name, _raycastHit.collider.GameObject());
+                        //DisplayItemSet(_raycastHit.collider.gameObject.name, _raycastHit.collider.gameObject);
                     }
                     else if (_raycastHit.collider.gameObject.tag == "ShopObject")
                         ShopOpen();
